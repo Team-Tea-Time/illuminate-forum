@@ -1,0 +1,24 @@
+{
+    "name": "teamteatime/illuminate-forum",
+    "description": "A RESTful forum backend for Illuminate 5.2 and above",
+    "keywords": ["laravel", "laravel-5", "lumen", "forum", "discuss"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Riari",
+            "email": "hello@ricko.me"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "TeamTeaTime\\Forum\\": "src"
+        }
+    },
+    "suggest": {
+        "teamteatime/illuminate-forum-frontend": "An illuminate-forum frontend providing Blade views"
+    }
+}
