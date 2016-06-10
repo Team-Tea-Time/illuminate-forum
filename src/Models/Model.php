@@ -1,9 +1,8 @@
 <?php namespace TeamTeaTime\Forum\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-abstract class BaseModel extends Model
+abstract class Model extends \Illuminate\Database\Eloquent\Model
 {
     /**
      * Create a new model instance.

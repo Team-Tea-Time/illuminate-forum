@@ -6,7 +6,7 @@ use TeamTeaTime\Forum\Models\Category;
 use TeamTeaTime\Forum\Models\Post;
 use TeamTeaTime\Forum\Models\Traits\HasAuthor;
 
-class Thread extends BaseModel
+class Thread extends Model
 {
     use SoftDeletes, HasAuthor;
 
@@ -57,7 +57,7 @@ class Thread extends BaseModel
      */
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(config('forum.integration.models.category'));
     }
 
     /**
@@ -83,7 +83,7 @@ class Thread extends BaseModel
     public function posts()
     {
         $withTrashed = config('forum.preferences.display_trashed_posts') || Gate::allows('viewTrashedPosts');
-        $query = $this->hasMany(Post::class);
+        $query = $this->hasMany(config('forum.integration.models.post'));
         return $withTrashed ? $query->withTrashed() : $query;
     }
 

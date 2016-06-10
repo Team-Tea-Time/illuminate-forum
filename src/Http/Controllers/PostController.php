@@ -1,11 +1,11 @@
-<?php namespace TeamTeaTime\Forum\Http\Controllers\API;
+<?php namespace TeamTeaTime\Forum\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use TeamTeaTime\Forum\Models\Post;
 use TeamTeaTime\Forum\Models\Thread;
 
-class PostController extends BaseController
+class PostController extends Controller
 {
     /**
      * Return the model to use for this controller.

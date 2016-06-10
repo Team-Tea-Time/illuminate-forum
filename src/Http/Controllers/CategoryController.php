@@ -1,11 +1,11 @@
-<?php namespace TeamTeaTime\Forum\Http\Controllers\API;
+<?php namespace TeamTeaTime\Forum\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use TeamTeaTime\Forum\Models\Category;
 
-class CategoryController extends BaseController
+class CategoryController extends Controller
 {
     /**
      * Return the model to use for this controller.

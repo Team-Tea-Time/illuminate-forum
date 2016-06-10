@@ -1,4 +1,4 @@
-<?php namespace TeamTeaTime\Forum\Http\Controllers\API;
+<?php namespace TeamTeaTime\Forum\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -6,9 +6,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Http\Exception\HttpResponseException;
-use Illuminate\Routing\Controller;
 
-abstract class BaseController extends Controller
+abstract class Controller extends \Illuminate\Routing\Controller
 {
     use AuthorizesRequests, ValidatesRequests;
 

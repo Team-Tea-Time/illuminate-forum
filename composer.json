@@ -1,7 +1,7 @@
 {
     "name": "teamteatime/illuminate-forum",
     "description": "A RESTful forum backend for Illuminate 5.2 and above",
-    "keywords": ["laravel", "laravel-5", "lumen", "forum", "discuss"],
+    "keywords": ["illuminate", "laravel", "laravel-5", "lumen", "forum", "discuss"],
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "~5.2"
+        "illuminate/validation": "~5.2"
     },
     "autoload": {
         "psr-4": {

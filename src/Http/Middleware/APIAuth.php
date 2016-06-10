@@ -2,9 +2,18 @@
 
 use Closure;
 use Illuminate\Http\Request;
+use TeamTeaTime\Forum\Support\Factory;
 
 class APIAuth
 {
+    /**
+     * Create a new API auth middleware instance.
+     */
+    public function __construct()
+    {
+        $this->utils = Factory::make('utility_class');
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -14,7 +23,7 @@ class APIAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        $tokenHeader = 'Token token="' . config('forum.api.token') . '"';
+        $tokenHeader = 'Token token="' . $this->utils->getUserAPIToken() . '"';
         if (auth()->check() || $request->header('Authorization') == $tokenHeader) {
             // User is authenticated or a valid API token was provided; continue the request
             return $next($request);

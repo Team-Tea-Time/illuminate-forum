@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use TeamTeaTime\Forum\Models\Traits\HasAuthor;
 use TeamTeaTime\Forum\Support\Traits\CachesData;
 
-class Post extends BaseModel
+class Post extends Model
 {
     use SoftDeletes, HasAuthor, CachesData;
 
@@ -47,7 +47,7 @@ class Post extends BaseModel
      */
     public function thread()
     {
-        return $this->belongsTo(Thread::class)->withTrashed();
+        return $this->belongsTo(config('forum.integration.models.thread'))->withTrashed();
     }
 
     /**
@@ -57,7 +57,7 @@ class Post extends BaseModel
      */
     public function parent()
     {
-        return $this->belongsTo(Post::class, 'post_id');
+        return $this->belongsTo(config('forum.integration.models.post'), 'post_id');
     }
 
     /**
@@ -67,7 +67,7 @@ class Post extends BaseModel
      */
     public function children()
     {
-        return $this->hasMany(Post::class, 'post_id')->withTrashed();
+        return $this->hasMany(config('forum.integration.models.post'), 'post_id')->withTrashed();
     }
 
     /**

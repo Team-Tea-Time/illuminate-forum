@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Gate;
 use TeamTeaTime\Forum\Support\Traits\CachesData;
 
-class Category extends BaseModel
+class Category extends Model
 {
     use CachesData;
 
@@ -46,7 +46,7 @@ class Category extends BaseModel
      */
     public function parent()
     {
-        return $this->belongsTo(Category::class, 'category_id')->orderBy('weight');
+        return $this->belongsTo(config('forum.integration.models.category'), 'category_id')->orderBy('weight');
     }
 
     /**
@@ -56,7 +56,7 @@ class Category extends BaseModel
      */
     public function children()
     {
-        return $this->hasMany(Category::class, 'category_id')->orderBy('weight');
+        return $this->hasMany(config('forum.integration.models.category'), 'category_id')->orderBy('weight');
     }
 
     /**
@@ -67,7 +67,7 @@ class Category extends BaseModel
     public function threads()
     {
         $withTrashed = Gate::allows('viewTrashedThreads');
-        $query = $this->hasMany(Thread::class);
+        $query = $this->hasMany(config('forum.integration.models.thread'));
         return $withTrashed ? $query->withTrashed() : $query;
     }
 
