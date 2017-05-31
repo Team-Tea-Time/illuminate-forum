@@ -2,6 +2,6 @@
 
 return [
 
-    'foo' => 'bar',
+    'prefix' => 'forum',
 
 ];

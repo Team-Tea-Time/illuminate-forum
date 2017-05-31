@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Policies;
+namespace AndreasElia\Forum\Policies;
 
-use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ForumPolicy

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Observers;
+namespace AndreasElia\Forum\Observers;
 
-use App\Discussion;
+use AndreasElia\Forum\Models\Discussion;
 
 class DiscussionObserver
 {

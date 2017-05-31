@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Observers;
+namespace AndreasElia\Forum\Observers;
 
-use App\Post;
+use AndreasElia\Forum\Models\Post;
 
 class PostObserver
 {
