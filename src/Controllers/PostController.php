@@ -2,9 +2,10 @@
 
 namespace AndreasElia\Forum\Controllers;
 
-use AndreasElia\Forum\Contracts\PostRepository;
-use AndreasElia\Forum\Requests\CreatePostRequest;
-use AndreasElia\Forum\Requests\UpdatePostRequest;
+use AndreasElia\Forum\Repositories\PostRepository;
+use AndreasElia\Forum\Requests\Post\CreatePostRequest;
+use AndreasElia\Forum\Requests\Post\UpdatePostRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,14 +13,14 @@ class PostController extends Controller
     /**
      * The repository for this controller.
      *
-     * @var \AndreasElia\Forum\Contracts\PostRepository $postRepository
+     * @var \AndreasElia\Forum\Repositories\PostRepository $postRepository
      */
     protected $postRepository;
 
     /**
      * [__construct description]
      *
-     * @param \AndreasElia\Forum\Contracts\PostRepository $postRepository
+     * @param \AndreasElia\Forum\Repositories\PostRepository $postRepository
      */
     public function __construct(PostRepository $postRepository)
     {
@@ -29,7 +30,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\CreatePostRequest  $request
+     * @param  \AndreasElia\Forum\Requests\Post\CreatePostRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreatePostRequest $request)
@@ -40,7 +41,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\UpdatePostRequest  $request
+     * @param  \AndreasElia\Forum\Requests\Post\UpdatePostRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

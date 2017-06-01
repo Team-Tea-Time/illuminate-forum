@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreasElia\Forum\Requests;
+namespace AndreasElia\Forum\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 

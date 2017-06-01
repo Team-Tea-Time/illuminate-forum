@@ -2,9 +2,10 @@
 
 namespace AndreasElia\Forum\Controllers;
 
-use AndreasElia\Forum\Contracts\GroupRepository;
-use AndreasElia\Forum\Requests\CreateGroupRequest;
-use AndreasElia\Forum\Requests\UpdateGroupRequest;
+use AndreasElia\Forum\Repositories\GroupRepository;
+use AndreasElia\Forum\Requests\Group\CreateGroupRequest;
+use AndreasElia\Forum\Requests\Group\UpdateGroupRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -12,14 +13,14 @@ class GroupController extends Controller
     /**
      * The repository for this controller.
      *
-     * @var \AndreasElia\Forum\Contracts\GroupRepository $groupRepository
+     * @var \AndreasElia\Forum\Repositories\GroupRepository $groupRepository
      */
     protected $groupRepository;
 
     /**
      * [__construct description]
      *
-     * @param \AndreasElia\Forum\Contracts\GroupRepository $groupRepository
+     * @param \AndreasElia\Forum\Repositories\GroupRepository $groupRepository
      */
     public function __construct(GroupRepository $groupRepository)
     {
@@ -29,7 +30,7 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\CreateGroupRequest  $request
+     * @param  \AndreasElia\Forum\Requests\Group\CreateGroupRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateGroupRequest $request)
@@ -40,7 +41,7 @@ class GroupController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\UpdateGroupRequest  $request
+     * @param  \AndreasElia\Forum\Requests\Group\UpdateGroupRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

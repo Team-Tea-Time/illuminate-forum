@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreasElia\Forum\Requests;
+namespace AndreasElia\Forum\Requests\Discussion;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateGroupRequest extends FormRequest
+class CreateDiscussionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

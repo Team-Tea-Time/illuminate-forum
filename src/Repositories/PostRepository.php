@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreasElia\Forum\Contracts;
+namespace AndreasElia\Forum\Repositories;
 
 use AndreasElia\Forum\Models\Discussion;
 use AndreasElia\Forum\Models\Post;

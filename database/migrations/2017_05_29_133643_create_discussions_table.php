@@ -15,8 +15,8 @@ class CreateDiscussionsTable extends Migration
     {
         Schema::create('discussions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 200);
-            $table->string('slug', 200);
+            $table->string('title');
+            $table->string('slug');
             $table->integer('posts_count')->unsigned()->default(0);
             $table->integer('participants_count')->unsigned()->default(0);
             $table->integer('start_post_id')->unsigned()->default(0);
