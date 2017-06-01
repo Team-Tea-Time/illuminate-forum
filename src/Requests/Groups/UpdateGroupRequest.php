@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreasElia\Forum\Requests\Post;
+namespace AndreasElia\Forum\Requests\Groups;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePostRequest extends FormRequest
+class UpdateGroupRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required',
+            'title' => 'required',
+            'slug'  => 'required',
+            'color' => 'required',
         ];
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreasElia\Forum\Requests\Post;
+namespace AndreasElia\Forum\Requests\Discussions;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreatePostRequest extends FormRequest
+class CreateDiscussionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required',
+            'title' => 'required',
+            'slug'  => 'required',
         ];
     }
 }

@@ -3,8 +3,8 @@
 namespace AndreasElia\Forum\Controllers;
 
 use AndreasElia\Forum\Repositories\PostRepository;
-use AndreasElia\Forum\Requests\Post\CreatePostRequest;
-use AndreasElia\Forum\Requests\Post\UpdatePostRequest;
+use AndreasElia\Forum\Requests\Posts\CreatePostRequest;
+use AndreasElia\Forum\Requests\Posts\UpdatePostRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -30,7 +30,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\Post\CreatePostRequest  $request
+     * @param  \AndreasElia\Forum\Requests\Posts\CreatePostRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreatePostRequest $request)
@@ -41,7 +41,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\Post\UpdatePostRequest  $request
+     * @param  \AndreasElia\Forum\Requests\Posts\UpdatePostRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
