@@ -64,6 +64,6 @@ class DiscussionController extends Controller
     {
         $delete = $this->discussionRepository->deleteDiscussion($id);
 
-        return response($delete, 200);
+        return response($delete, 204);
     }
 }

@@ -9,14 +9,14 @@ use App\User;
 $factory->define(Discussion::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence(6),
-        'slug' => $faker->word,
+        'slug'  => $faker->word,
     ];
 });
 
 $factory->define(Group::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->word,
-        'slug' => $faker->word,
+        'name'  => $faker->word,
+        'slug'  => $faker->word,
         'color' => $faker->hexcolor,
     ];
 });
@@ -24,7 +24,7 @@ $factory->define(Group::class, function (Faker\Generator $faker) {
 $factory->define(Post::class, function (Faker\Generator $faker) {
     return [
         'discussion_id' => factory(Discussion::class),
-        'user_id' => factory(User::class),
-        'text' => $faker->text,
+        'user_id'       => factory(User::class),
+        'text'          => $faker->text,
     ];
 });

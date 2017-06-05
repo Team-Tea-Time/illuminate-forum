@@ -64,6 +64,6 @@ class GroupController extends Controller
     {
         $delete = $this->groupRepository->deleteGroup($id);
 
-        return response($delete, 200);
+        return response($delete, 204);
     }
 }

@@ -64,6 +64,6 @@ class PostController extends Controller
     {
         $delete = $this->postRepository->deletePost($id);
 
-        return response($delete, 200);
+        return response($delete, 204);
     }
 }
