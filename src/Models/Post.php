@@ -18,7 +18,6 @@ class Post extends Model
     protected $fillable = [
         'discussion_id',
         'user_id',
-        'type',
         'content',
     ];
 

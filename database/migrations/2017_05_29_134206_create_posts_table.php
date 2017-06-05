@@ -17,7 +17,6 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('discussion_id')->unsigned();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->string('type')->nullable();
             $table->text('content')->nullable();
             $table->timestamps();
             $table->softDeletes();
