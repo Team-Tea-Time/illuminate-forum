@@ -35,7 +35,9 @@ class DiscussionController extends Controller
      */
     public function store(CreateDiscussionRequest $request)
     {
-        $this->discussionRepository->addDiscussion($request->all());
+        $add = $this->discussionRepository->addDiscussion($request->all());
+
+        return response($add, 201);
     }
 
     /**
@@ -47,7 +49,9 @@ class DiscussionController extends Controller
      */
     public function update(UpdateDiscussionRequest $request, $id)
     {
-        $this->discussionRepository->updateDiscussion($request->all());
+        $update = $this->discussionRepository->updateDiscussion($request->all());
+
+        return response($update, 200);
     }
 
     /**
@@ -58,6 +62,8 @@ class DiscussionController extends Controller
      */
     public function destroy($id)
     {
-        $this->discussionRepository->deleteDiscussion($id);
+        $delete = $this->discussionRepository->deleteDiscussion($id);
+
+        return response($delete, 200);
     }
 }

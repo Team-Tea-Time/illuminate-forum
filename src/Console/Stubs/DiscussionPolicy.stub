@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Policies;
+
+use AndreasElia\Forum\Models\Discussion;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class DiscussionPolicy
+{
+    use HandlesAuthorization;
+
+    /**
+     * Create a new policy instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Determine if the given discussion can be deleted by the user.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Discussion  $discussion
+     * @return bool
+     */
+    public function delete(User $user, Discussion $discussion)
+    {
+        return $user->id === $discussion->user_id;
+    }
+}

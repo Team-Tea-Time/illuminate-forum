@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreasElia\Forum\Policies;
+namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class DiscussionPolicy
+class GroupPolicy
 {
     use HandlesAuthorization;
 

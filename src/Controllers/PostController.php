@@ -35,7 +35,9 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        $this->postRepository->addPost($request->all());
+        $add = $this->postRepository->addPost($request->all());
+
+        return response($add, 201);
     }
 
     /**
@@ -47,7 +49,9 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, $id)
     {
-        $this->postRepository->updatePost($request->all());
+        $update = $this->postRepository->updatePost($request->all());
+
+        return response($update, 200);
     }
 
     /**
@@ -58,6 +62,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $this->postRepository->deletePost($id);
+        $delete = $this->postRepository->deletePost($id);
+
+        return response($delete, 200);
     }
 }

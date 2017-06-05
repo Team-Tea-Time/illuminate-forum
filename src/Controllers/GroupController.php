@@ -35,7 +35,9 @@ class GroupController extends Controller
      */
     public function store(CreateGroupRequest $request)
     {
-        $this->groupRepository->addGroup($request->all());
+        $add = $this->groupRepository->addGroup($request->all());
+
+        return response($add, 201);
     }
 
     /**
@@ -47,7 +49,9 @@ class GroupController extends Controller
      */
     public function update(UpdateGroupRequest $request, $id)
     {
-        $this->groupRepository->updateGroup($request->all());
+        $update = $this->groupRepository->updateGroup($request->all());
+
+        return response($update, 200);
     }
 
     /**
@@ -58,6 +62,8 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        $this->groupRepository->deleteGroup($id);
+        $delete = $this->groupRepository->deleteGroup($id);
+
+        return response($delete, 200);
     }
 }

@@ -7,22 +7,10 @@
 
 ## Installation
 
-Add `andreaselia/laravel-forum` to `composer.json`.
-
-```json
-{
-    "require": {
-        "andreaselia/laravel-forum": "1.*"
-    }
-}
-```
-
-Run `composer update` to pull down the latest version of Laravel Forum.
-
-Alternatively, install it directly from the command line.
+Install the package directly from the command line using the following command.
 
 ```bash
-composer require "andreaselia/laravel-forum:1.*"
+composer require "andreaselia/laravel-forum"
 ```
 
 Next open up `config/app.php` and add the following under the package providers section.
@@ -47,3 +35,5 @@ php artisan migrate
 ```
 
 ## Configuration
+
+After publishing, the forum config file can be found under config/forum.php where you can modify the package configuration.
