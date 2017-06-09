@@ -39,6 +39,6 @@ class ForumServiceProvider extends ServiceProvider
      */
     public function setupRoutes()
     {
-        $this->loadRoutesFrom(__DIR__ . '/../routes/forum.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
     }
 }
