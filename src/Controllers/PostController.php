@@ -2,30 +2,13 @@
 
 namespace AndreasElia\Forum\Controllers;
 
-use AndreasElia\Forum\Repositories\PostRepository;
+use AndreasElia\Forum\Models\Post;
 use AndreasElia\Forum\Requests\Posts\CreatePostRequest;
 use AndreasElia\Forum\Requests\Posts\UpdatePostRequest;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    /**
-     * The repository for this controller.
-     *
-     * @var \AndreasElia\Forum\Repositories\PostRepository
-     */
-    protected $postRepository;
-
-    /**
-     * [__construct description].
-     *
-     * @param \AndreasElia\Forum\Repositories\PostRepository $postRepository
-     */
-    public function __construct(PostRepository $postRepository)
-    {
-        $this->postRepository = $postRepository;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -35,9 +18,9 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        $add = $this->postRepository->addPost($request->all());
+        $post = Post::create($request->all());
 
-        return response($add, 201);
+        return response($post, 201);
     }
 
     /**
@@ -50,9 +33,10 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, $id)
     {
-        $update = $this->postRepository->updatePost($request->all());
+        $post = Post::find($id);
+        $post->update($request->all());
 
-        return response($update, 200);
+        return response($post, 200);
     }
 
     /**
@@ -64,8 +48,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $delete = $this->postRepository->deletePost($id);
+        $post = Post::find($id);
+        $post->delete();
 
-        return response($delete, 204);
+        return response($post, 204);
     }
 }

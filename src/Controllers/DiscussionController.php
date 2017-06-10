@@ -2,30 +2,13 @@
 
 namespace AndreasElia\Forum\Controllers;
 
-use AndreasElia\Forum\Repositories\DiscussionRepository;
+use AndreasElia\Forum\Model\Discussion;
 use AndreasElia\Forum\Requests\Discussions\CreateDiscussionRequest;
 use AndreasElia\Forum\Requests\Discussions\UpdateDiscussionRequest;
 use App\Http\Controllers\Controller;
 
 class DiscussionController extends Controller
 {
-    /**
-     * The repository for this controller.
-     *
-     * @var \AndreasElia\Forum\Repositories\DiscussionRepository
-     */
-    protected $discussionRepository;
-
-    /**
-     * [__construct description].
-     *
-     * @param \AndreasElia\Forum\Repositories\DiscussionRepository $discussionRepository
-     */
-    public function __construct(DiscussionRepository $discussionRepository)
-    {
-        $this->discussionRepository = $discussionRepository;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -35,9 +18,9 @@ class DiscussionController extends Controller
      */
     public function store(CreateDiscussionRequest $request)
     {
-        $add = $this->discussionRepository->addDiscussion($request->all());
+        $discussion = Discussion::create($request->all());
 
-        return response($add, 201);
+        return response($discussion, 201);
     }
 
     /**
@@ -50,9 +33,10 @@ class DiscussionController extends Controller
      */
     public function update(UpdateDiscussionRequest $request, $id)
     {
-        $update = $this->discussionRepository->updateDiscussion($request->all());
+        $discussion = Discussion::find($id);
+        $discussion->update($request->all());
 
-        return response($update, 200);
+        return response($discussion, 200);
     }
 
     /**
@@ -64,8 +48,9 @@ class DiscussionController extends Controller
      */
     public function destroy($id)
     {
-        $delete = $this->discussionRepository->deleteDiscussion($id);
+        $discussion = Discussion::find($id);
+        $discussion->delete();
 
-        return response($delete, 204);
+        return response($discussion, 204);
     }
 }

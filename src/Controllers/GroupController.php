@@ -2,30 +2,13 @@
 
 namespace AndreasElia\Forum\Controllers;
 
-use AndreasElia\Forum\Repositories\GroupRepository;
+use AndreasElia\Forum\Models\Group;
 use AndreasElia\Forum\Requests\Groups\CreateGroupRequest;
 use AndreasElia\Forum\Requests\Groups\UpdateGroupRequest;
 use App\Http\Controllers\Controller;
 
 class GroupController extends Controller
 {
-    /**
-     * The repository for this controller.
-     *
-     * @var \AndreasElia\Forum\Repositories\GroupRepository
-     */
-    protected $groupRepository;
-
-    /**
-     * [__construct description].
-     *
-     * @param \AndreasElia\Forum\Repositories\GroupRepository $groupRepository
-     */
-    public function __construct(GroupRepository $groupRepository)
-    {
-        $this->groupRepository = $groupRepository;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -35,9 +18,9 @@ class GroupController extends Controller
      */
     public function store(CreateGroupRequest $request)
     {
-        $add = $this->groupRepository->addGroup($request->all());
+        $group = Group::create($request->all());
 
-        return response($add, 201);
+        return response($group, 201);
     }
 
     /**
@@ -50,9 +33,10 @@ class GroupController extends Controller
      */
     public function update(UpdateGroupRequest $request, $id)
     {
-        $update = $this->groupRepository->updateGroup($request->all());
+        $group = Ground::find($id);
+        $group->update($request->all());
 
-        return response($update, 200);
+        return response($group, 200);
     }
 
     /**
@@ -64,8 +48,9 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        $delete = $this->groupRepository->deleteGroup($id);
+        $group = Group::find($id);
+        $group->delete();
 
-        return response($delete, 204);
+        return response($group, 204);
     }
 }
