@@ -9,7 +9,8 @@ class DiscussionObserver
     /**
      * Listen to the Discussion created event.
      *
-     * @param  Discussion  $user
+     * @param Discussion $user
+     *
      * @return void
      */
     public function created(Discussion $user)
@@ -20,7 +21,8 @@ class DiscussionObserver
     /**
      * Listen to the Discussion deleting event.
      *
-     * @param  Discussion  $user
+     * @param Discussion $user
+     *
      * @return void
      */
     public function deleting(Discussion $user)

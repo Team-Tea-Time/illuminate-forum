@@ -6,19 +6,18 @@ use AndreasElia\Forum\Repositories\DiscussionRepository;
 use AndreasElia\Forum\Requests\Discussions\CreateDiscussionRequest;
 use AndreasElia\Forum\Requests\Discussions\UpdateDiscussionRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class DiscussionController extends Controller
 {
     /**
      * The repository for this controller.
      *
-     * @var \AndreasElia\Forum\Repositories\DiscussionRepository $discussionRepository
+     * @var \AndreasElia\Forum\Repositories\DiscussionRepository
      */
     protected $discussionRepository;
 
     /**
-     * [__construct description]
+     * [__construct description].
      *
      * @param \AndreasElia\Forum\Repositories\DiscussionRepository $discussionRepository
      */
@@ -30,7 +29,8 @@ class DiscussionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\Discussions\CreateDiscussionRequest  $request
+     * @param \AndreasElia\Forum\Requests\Discussions\CreateDiscussionRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(CreateDiscussionRequest $request)
@@ -43,8 +43,9 @@ class DiscussionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\Discussions\UpdateDiscussionRequest  $request
-     * @param  int  $id
+     * @param \AndreasElia\Forum\Requests\Discussions\UpdateDiscussionRequest $request
+     * @param int                                                             $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateDiscussionRequest $request, $id)
@@ -57,7 +58,8 @@ class DiscussionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

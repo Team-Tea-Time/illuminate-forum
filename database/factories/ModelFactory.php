@@ -5,7 +5,7 @@ use AndreasElia\Models\Group;
 use AndreasElia\Models\Post;
 use App\User;
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/* @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Discussion::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence(6),

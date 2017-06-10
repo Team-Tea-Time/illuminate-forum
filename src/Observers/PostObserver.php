@@ -9,7 +9,8 @@ class PostObserver
     /**
      * Listen to the Post created event.
      *
-     * @param  Post  $user
+     * @param Post $user
+     *
      * @return void
      */
     public function created(Post $user)
@@ -20,7 +21,8 @@ class PostObserver
     /**
      * Listen to the Post deleting event.
      *
-     * @param  Post  $user
+     * @param Post $user
+     *
      * @return void
      */
     public function deleting(Post $user)

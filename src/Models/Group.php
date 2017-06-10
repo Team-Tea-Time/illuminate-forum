@@ -2,7 +2,6 @@
 
 namespace AndreasElia\Forum\Models;
 
-use AndreasElia\Forum\Models\Discussion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -23,6 +22,6 @@ class Group extends Model
 
     public function discussions()
     {
-        return $this->hasMany(Discussion::class);
+        return $this->hasMany('AndreasElia\Forum\Models\Discussion');
     }
 }

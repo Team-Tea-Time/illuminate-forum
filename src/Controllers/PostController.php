@@ -6,19 +6,18 @@ use AndreasElia\Forum\Repositories\PostRepository;
 use AndreasElia\Forum\Requests\Posts\CreatePostRequest;
 use AndreasElia\Forum\Requests\Posts\UpdatePostRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     /**
      * The repository for this controller.
      *
-     * @var \AndreasElia\Forum\Repositories\PostRepository $postRepository
+     * @var \AndreasElia\Forum\Repositories\PostRepository
      */
     protected $postRepository;
 
     /**
-     * [__construct description]
+     * [__construct description].
      *
      * @param \AndreasElia\Forum\Repositories\PostRepository $postRepository
      */
@@ -30,7 +29,8 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\Posts\CreatePostRequest  $request
+     * @param \AndreasElia\Forum\Requests\Posts\CreatePostRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(CreatePostRequest $request)
@@ -43,8 +43,9 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \AndreasElia\Forum\Requests\Posts\UpdatePostRequest  $request
-     * @param  int  $id
+     * @param \AndreasElia\Forum\Requests\Posts\UpdatePostRequest $request
+     * @param int                                                 $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePostRequest $request, $id)
@@ -57,7 +58,8 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

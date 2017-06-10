@@ -2,8 +2,6 @@
 
 namespace AndreasElia\Forum\Models;
 
-use AndreasElia\Forum\Models\Group;
-use AndreasElia\Forum\Models\Post;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -27,11 +25,11 @@ class Discussion extends Model
 
     public function group()
     {
-        return $this->belongsTo(Group::class);
+        return $this->belongsTo('AndreasElia\Forum\Models\Group');
     }
 
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany('AndreasElia\Forum\Models\Post');
     }
 }

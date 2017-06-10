@@ -2,8 +2,6 @@
 
 namespace AndreasElia\Forum\Models;
 
-use AndreasElia\Forum\Models\Discussion;
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -24,11 +22,11 @@ class Post extends Model
 
     public function discussion()
     {
-        return $this->belongsTo(Discussion::class);
+        return $this->belongsTo('AndreasElia\Forum\Models\Discussion');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User');
     }
 }
