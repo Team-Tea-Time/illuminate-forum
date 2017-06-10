@@ -23,6 +23,16 @@ class Discussion extends Model
         'last_post_id',
     ];
 
+    /**
+     * The attributes that should be casted as a Carbon object.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'locked_at',
+        'stickied_at',
+    ];
+
     public function group()
     {
         return $this->belongsTo('AndreasElia\Forum\Models\Group');
