@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Console\Commands;
+namespace AndreasElia\Forum\Console;
 
 use Illuminate\Console\Command;
 
-class ForumCommand extends Command
+class InstallCommand extends Command
 {
     /**
      * The name and signature of the console command.
@@ -19,6 +19,17 @@ class ForumCommand extends Command
      * @var string
      */
     protected $description = 'Install the forum and initial setup';
+
+    /**
+     * Policies that need to be converted.
+     *
+     * @var array
+     */
+    protected $policies = [
+        'discussion-policy.stub' => 'DiscussionPolicy.php',
+        'group-policy.stub' => 'GroupPolicy.php',
+        'post-policy.stub' => 'PostPolicy.php'
+    ];
 
     /**
      * Create a new command instance.
@@ -37,6 +48,11 @@ class ForumCommand extends Command
      */
     public function handle()
     {
-        //
+        foreach ($this->policies as $key => $value) {
+            copy(
+                __DIR__.'/stubs/'.$key,
+                app_path('Policies/'.$value)
+            );
+        }
     }
 }

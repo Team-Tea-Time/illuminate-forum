@@ -2,6 +2,7 @@
 
 namespace AndreasElia\Forum;
 
+use AndreasElia\Forum\Console\InstallCommand;
 use Illuminate\Support\ServiceProvider;
 
 class ForumServiceProvider extends ServiceProvider
@@ -13,6 +14,12 @@ class ForumServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                InstallCommand::class
+            ]);
+        }
+
         $this->publishes([
             __DIR__.'/../config/forum.php' => config_path('forum.php'),
         ], 'config');
