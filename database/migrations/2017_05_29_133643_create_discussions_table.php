@@ -19,7 +19,7 @@ class CreateDiscussionsTable extends Migration
             $table->string('slug');
             $table->integer('posts_count')->unsigned()->default(0);
             $table->integer('participants_count')->unsigned()->default(0);
-            $table->integer('start_post_id')->unsigned()->default(0);
+            $table->integer('first_post_id')->unsigned()->default(0);
             $table->integer('last_post_id')->unsigned()->nullable();
             $table->timestamp('locked_at')->nullable()->default(null);
             $table->timestamp('stickied_at')->nullable()->default(null);
