@@ -27,8 +27,8 @@ class InstallCommand extends Command
      */
     protected $policies = [
         'discussion-policy.stub' => 'DiscussionPolicy.php',
-        'group-policy.stub' => 'GroupPolicy.php',
-        'post-policy.stub' => 'PostPolicy.php'
+        'group-policy.stub'      => 'GroupPolicy.php',
+        'post-policy.stub'       => 'PostPolicy.php',
     ];
 
     /**
