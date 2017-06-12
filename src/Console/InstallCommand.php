@@ -48,6 +48,10 @@ class InstallCommand extends Command
      */
     public function handle()
     {
+        if (! is_dir(app_path('Policies'))) {
+            mkdir(app_path('Policies'), 0755, true);
+        }
+
         foreach ($this->policies as $key => $value) {
             copy(
                 __DIR__.'/stubs/'.$key,
