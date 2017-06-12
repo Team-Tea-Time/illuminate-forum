@@ -48,7 +48,7 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        if (! is_dir(app_path('Policies'))) {
+        if (!is_dir(app_path('Policies'))) {
             mkdir(app_path('Policies'), 0755, true);
         }
 
