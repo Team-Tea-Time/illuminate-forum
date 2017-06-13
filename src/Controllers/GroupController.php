@@ -5,7 +5,6 @@ namespace AndreasElia\Forum\Controllers;
 use AndreasElia\Forum\Models\Group;
 use AndreasElia\Forum\Requests\Groups\CreateGroupRequest;
 use AndreasElia\Forum\Requests\Groups\UpdateGroupRequest;
-use App\Http\Controllers\Controller;
 
 class GroupController extends Controller
 {

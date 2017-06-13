@@ -2,8 +2,8 @@
 
 namespace AndreasElia\Forum\Controllers\Discussion;
 
+use AndreasElia\Forum\Controllers\Controller;
 use AndreasElia\Forum\Models\Discussion;
-use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 
 class StickyController extends Controller

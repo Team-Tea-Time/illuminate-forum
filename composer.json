@@ -16,8 +16,17 @@
     },
     "require-dev": {
         "mockery/mockery": "^0.9",
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^6.0",
+        "orchestra/testbench-browser-kit": "dev-patch-1",
+        "orchestra/database": "^3.4",
+        "laravel/browser-kit-testing": "~2.0"
     },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/deleugpn/testbench-browser-kit.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "AndreasElia\\Forum\\": "src"
@@ -25,7 +34,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "AndreasElia\\Tests\\Forum\\": "tests"
+            "AndreasElia\\Tests\\": "tests"
         }
     },
     "extra": {

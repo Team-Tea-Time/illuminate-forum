@@ -5,7 +5,6 @@ namespace AndreasElia\Forum\Controllers;
 use AndreasElia\Forum\Models\Post;
 use AndreasElia\Forum\Requests\Posts\CreatePostRequest;
 use AndreasElia\Forum\Requests\Posts\UpdatePostRequest;
-use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {

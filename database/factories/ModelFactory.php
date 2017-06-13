@@ -1,9 +1,8 @@
 <?php
 
-use AndreasElia\Models\Discussion;
-use AndreasElia\Models\Group;
-use AndreasElia\Models\Post;
-use App\User;
+use AndreasElia\Forum\Models\Discussion;
+use AndreasElia\Forum\Models\Group;
+use AndreasElia\Forum\Models\Post;
 
 /* @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Discussion::class, function (Faker\Generator $faker) {
@@ -24,7 +23,7 @@ $factory->define(Group::class, function (Faker\Generator $faker) {
 $factory->define(Post::class, function (Faker\Generator $faker) {
     return [
         'discussion_id' => factory(Discussion::class),
-        'user_id'       => factory(User::class),
-        'text'          => $faker->text,
+        'user_id'       => factory(config('forum.user')),
+        'content'       => $faker->text,
     ];
 });

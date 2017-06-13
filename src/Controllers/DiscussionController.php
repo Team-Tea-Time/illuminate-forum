@@ -2,10 +2,9 @@
 
 namespace AndreasElia\Forum\Controllers;
 
-use AndreasElia\Forum\Model\Discussion;
+use AndreasElia\Forum\Models\Discussion;
 use AndreasElia\Forum\Requests\Discussions\CreateDiscussionRequest;
 use AndreasElia\Forum\Requests\Discussions\UpdateDiscussionRequest;
-use App\Http\Controllers\Controller;
 
 class DiscussionController extends Controller
 {
