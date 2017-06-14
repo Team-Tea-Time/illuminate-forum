@@ -1,3 +1,3 @@
 <footer class="footer">
-    <p>&copy; {{ date('Y') }} {{ config('forum.name') }}</p>
+    <p>&copy; {{ date('Y') }} {{ config('app.name') }}</p>
 </footer>

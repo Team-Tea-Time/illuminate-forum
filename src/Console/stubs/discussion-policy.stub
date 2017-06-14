@@ -20,14 +20,26 @@ class DiscussionPolicy
     }
 
     /**
-     * Determine if the given discussion can be deleted by the user.
+     * Determine the given user can manage the discussion.
      *
      * @param  \App\User  $user
      * @param  \App\Discussion  $discussion
      * @return bool
      */
-    public function delete(User $user, Discussion $discussion)
+    public function manage(User $user, Discussion $discussion)
     {
         return $user->id === $discussion->user_id;
+    }
+
+    /**
+     * Determine if a user can reply to the discussion.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Discussion  $discussion
+     * @return bool
+     */
+    public function reply(User $user, Discussion $discussion)
+    {
+        return !$discussion->locked_at;
     }
 }

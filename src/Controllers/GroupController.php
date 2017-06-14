@@ -9,6 +9,26 @@ use AndreasElia\Forum\Requests\Groups\UpdateGroupRequest;
 class GroupController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param \AndreasElia\Forum\Requests\Groups\CreateGroupRequest $request
@@ -23,16 +43,30 @@ class GroupController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Display the specified resource.
      *
-     * @param \AndreasElia\Forum\Requests\Groups\UpdateGroupRequest $request
-     * @param int                                                   $id
+     * @param string $slug
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGroupRequest $request, $id)
+    public function show($slug)
     {
-        $group = Ground::find($id);
+        $group = Group::where('slug', $slug)->with('discussions')->firstOrFail();
+
+        return view('forum::groups.show')->with(compact('group'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \AndreasElia\Forum\Requests\Groups\UpdateGroupRequest $request
+     * @param string                                                $slug
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateGroupRequest $request, $slug)
+    {
+        $group = Group::where('slug', $slug)->firstOrFail();
         $group->update($request->all());
 
         return response($group, 200);
@@ -41,13 +75,13 @@ class GroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param string $slug
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $group = Group::find($id);
+        $group = Group::where('slug', $slug)->firstOrFail();
         $group->delete();
 
         return response($group, 204);

@@ -1,27 +1,33 @@
-@extends('layouts.app')
+@extends('forum::layouts.app')
 
 @section('content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            {{ $discussion->title }}
+            <div class="panel-title pull-left">{{ $discussion->title }}</div>
 
-            <form action="{{ $discussion->locked_at ? route('forum.lock.destroy') : route('forum.lock.store') }}">
-                {{ csrf_field() }}
-                <input type="hidden" name="discussion_id" value="{{ $discussion->id }}">
-                <input type="submit" value="{{ $discussion->locked_at ? 'Unlock' : 'Lock' }}" class="btn btn-{{ $discussion->locked_at ? 'danger' : 'success' }} pull-right">
-            </form>
+            <div class="pull-right">
+                <form action="{{ $discussion->locked_at ? route('forum.lock.destroy') : route('forum.lock.store') }}" class="panel-options">
+                    {{ csrf_field() }}
 
-            <form action="{{ $discussion->stickied_at ? route('forum.sticky.destroy') : route('forum.sticky.store') }}">
-                {{ csrf_field() }}
-                <input type="hidden" name="discussion_id" value="{{ $discussion->id }}">
-                <input type="submit" value="{{ $discussion->stickied_at ? 'Unsticky' : 'Sticky' }}" class="btn btn-{{ $discussion->locked_at ? 'danger' : 'success' }} pull-right">
-            </form>
+                    <input type="hidden" name="discussion_id" value="{{ $discussion->id }}">
+                    <input type="submit" value="{{ $discussion->locked_at ? 'Unlock' : 'Lock' }}" class="btn btn-{{ $discussion->locked_at ? 'danger' : 'success' }} pull-right">
+                </form>
+
+                <form action="{{ $discussion->stickied_at ? route('forum.sticky.destroy') : route('forum.sticky.store') }}" class="panel-options">
+                    {{ csrf_field() }}
+
+                    <input type="hidden" name="discussion_id" value="{{ $discussion->id }}">
+                    <input type="submit" value="{{ $discussion->stickied_at ? 'Unsticky' : 'Sticky' }}" class="btn btn-{{ $discussion->locked_at ? 'danger' : 'success' }} pull-right">
+                </form>
+            </div>
         </div>
 
-        <div class="panel-body">
-            <ul class="list-group">
-                @each('partials.post', $discussion->posts, 'post')
-            </ul>
+        <ul class="list-group">
+            @each('forum::partials.post', $discussion->posts, 'post')
+        </ul>
+
+        <div class="panel-footer text-center">
+            @include('forum::partials.quick-reply')
         </div>
     </div>
 @endsection

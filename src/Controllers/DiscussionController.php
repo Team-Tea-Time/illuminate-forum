@@ -9,6 +9,26 @@ use AndreasElia\Forum\Requests\Discussions\UpdateDiscussionRequest;
 class DiscussionController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('forum::discussions.create');
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param \AndreasElia\Forum\Requests\Discussions\CreateDiscussionRequest $request
@@ -17,9 +37,25 @@ class DiscussionController extends Controller
      */
     public function store(CreateDiscussionRequest $request)
     {
+        $request['slug'] = str_slug($request->title, '-');
+
         $discussion = Discussion::create($request->all());
 
-        return response($discussion, 201);
+        return redirect()->route('forum.discussions.show', $discussion->id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $discussion = Discussion::where('id', $id)->with('posts')->firstOrFail();
+
+        return view('forum::discussions.show')->with(compact('discussion'));
     }
 
     /**
@@ -35,7 +71,7 @@ class DiscussionController extends Controller
         $discussion = Discussion::find($id);
         $discussion->update($request->all());
 
-        return response($discussion, 200);
+        return redirect()->route('forum.discussions.show', $discussion->id);
     }
 
     /**
@@ -50,6 +86,6 @@ class DiscussionController extends Controller
         $discussion = Discussion::find($id);
         $discussion->delete();
 
-        return response($discussion, 204);
+        return redirect()->route('forum.home')->with('success', 'Discussion deleted successfully.');
     }
 }

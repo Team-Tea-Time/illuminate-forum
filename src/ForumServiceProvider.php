@@ -3,6 +3,7 @@
 namespace AndreasElia\Forum;
 
 use AndreasElia\Forum\Console\InstallCommand;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class ForumServiceProvider extends ServiceProvider
@@ -24,9 +25,9 @@ class ForumServiceProvider extends ServiceProvider
             __DIR__.'/../config/forum.php' => config_path('forum.php'),
         ], 'config');
 
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->registerPackageNamespaces();
 
-        $this->setupRoutes();
+        View::composer('*', 'AndreasElia\Forum\ViewComposers\GroupComposer');
     }
 
     /**
@@ -40,12 +41,15 @@ class ForumServiceProvider extends ServiceProvider
     }
 
     /**
-     * Define the application routes.
+     * Define the application migrations, routes, views and translations.
      *
      * @return void
      */
-    public function setupRoutes()
+    public function registerPackageNamespaces()
     {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'forum');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/translations', 'forum');
     }
 }

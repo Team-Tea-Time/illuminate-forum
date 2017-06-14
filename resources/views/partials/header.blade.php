@@ -7,6 +7,6 @@
     </nav>
 
     <h3 class="text-muted">
-        <a href="#">{{ config('forum.name') }}</a>
+        <a href="{{ route('forum.home') }}">{{ config('app.name') }}</a>
     </h3>
 </div>

@@ -42,4 +42,9 @@ class Discussion extends Model
     {
         return $this->hasMany('AndreasElia\Forum\Models\Post');
     }
+
+    public function post()
+    {
+        return $this->posts->first()->with('user')->first();
+    }
 }

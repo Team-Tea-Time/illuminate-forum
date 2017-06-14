@@ -1,11 +1,13 @@
-@extends('layouts.app')
+@extends('forum::layouts.app')
 
 @section('content')
     <div class="panel panel-default">
         <div class="panel-heading">Edit Discussion</div>
 
         <div class="panel-body">
-            <form action="{{ route('discussions.update') }}" method="post">
+            <form action="{{ route('forum.discussions.update', $discussion->id) }}" method="PUT">
+                {{ csrf_field() }}
+
                 <div class="form-group">
                     <label for="group">Group</label>
                     <select name="group" id="group" class="form-control">

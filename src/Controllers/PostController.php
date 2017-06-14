@@ -9,6 +9,26 @@ use AndreasElia\Forum\Requests\Posts\UpdatePostRequest;
 class PostController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param \AndreasElia\Forum\Requests\Posts\CreatePostRequest $request
@@ -19,7 +39,19 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
 
-        return response($post, 201);
+        return redirect()->route('forum.discussions.show', $post->discussion_id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -35,7 +67,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->update($request->all());
 
-        return response($post, 200);
+        return redirect()->route('forum.discussions.show', $post->discussion_id);
     }
 
     /**
@@ -48,8 +80,11 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        $discussion_id = $post->discussion_id;
+
         $post->delete();
 
-        return response($post, 204);
+        return redirect()->route('forum.discussions.show', $post->discussion_id)->with('success', 'Post deleted successfully.');
     }
 }

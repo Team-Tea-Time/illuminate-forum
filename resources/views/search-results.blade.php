@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading">Discussions</div>
+        <div class="panel-heading">Search Results</div>
 
         @if ($discussions)
             <ul class="list-group">
                 @each('forum::partials.discussion', $discussions, 'discussion')
             </ul>
         @else
-            No discussions to display.
+            No search results to display.
         @endif
     </div>
 @endsection
