@@ -20,9 +20,10 @@ class PostTest extends IntegrationTestCase
                 'discussion_id' => $discussion->id,
                 'content'       => $content,
             ])
-            ->assertResponseStatus(201);
+            ->assertResponseStatus(302)
+            ->assertRedirectedToRoute('forum.discussions.show', $discussion->id);
 
-        $this->seeInDatabase('posts', ['content' => $content]);
+        $this->seeInDatabase('posts', ['content' => $content, 'discussion_id' => $discussion->id]);
     }
 
     public function testCreatePostValidation()
@@ -40,7 +41,9 @@ class PostTest extends IntegrationTestCase
         $post = factory(Post::class)->create();
 
         $this->delete(route('forum.posts.destroy', $post->id))
-            ->assertResponseStatus(204);
+            ->assertResponseStatus(302)
+            ->assertRedirectedToRoute('forum.discussions.show', $post->discussion->id)
+            ->assertSessionHas('success', 'Post deleted successfully.');
 
         $this->dontSeeInDatabase('posts', ['id' => $post]);
     }

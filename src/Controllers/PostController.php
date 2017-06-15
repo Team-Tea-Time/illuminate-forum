@@ -81,8 +81,6 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        $discussion_id = $post->discussion_id;
-
         $post->delete();
 
         return redirect()->route('forum.discussions.show', $post->discussion_id)->with('success', 'Post deleted successfully.');
