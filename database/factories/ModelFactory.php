@@ -3,6 +3,7 @@
 use AndreasElia\Forum\Models\Discussion;
 use AndreasElia\Forum\Models\Group;
 use AndreasElia\Forum\Models\Post;
+use AndreasElia\Tests\Stubs\Models\User;
 
 /* @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Discussion::class, function (Faker\Generator $faker) {
@@ -25,5 +26,16 @@ $factory->define(Post::class, function (Faker\Generator $faker) {
         'discussion_id' => factory(Discussion::class),
         'user_id'       => factory(config('forum.user')),
         'content'       => $faker->text,
+    ];
+});
+
+$factory->define(User::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'password' => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10),
     ];
 });

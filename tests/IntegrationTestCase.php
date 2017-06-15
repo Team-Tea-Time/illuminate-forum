@@ -3,12 +3,14 @@
 namespace AndreasElia\Tests;
 
 use AndreasElia\Forum\ForumServiceProvider;
-use AndreasElia\Tests\stubs\models\User\User;
+use AndreasElia\Tests\Stubs\Models\User;
 use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\BrowserKit\TestCase;
+use Faker\Factory as Faker;
 
 class IntegrationTestCase extends TestCase
 {
+
     /**
      * Load package service provider.
      *
@@ -53,6 +55,11 @@ class IntegrationTestCase extends TestCase
 
     private function stubs()
     {
-        $this->loadMigrationsFrom(__DIR__.'/stubs/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Stubs/migrations');
+    }
+
+    protected function faker()
+    {
+        return Faker::create();
     }
 }

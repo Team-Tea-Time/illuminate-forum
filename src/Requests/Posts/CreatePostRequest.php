@@ -25,6 +25,7 @@ class CreatePostRequest extends FormRequest
     {
         return [
             'content' => 'required',
+            'discussion_id' => 'required'
         ];
     }
 }

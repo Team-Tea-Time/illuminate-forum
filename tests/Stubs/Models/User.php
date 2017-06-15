@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreasElia\Tests\stubs\models\User;
+namespace AndreasElia\Tests\Stubs\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
