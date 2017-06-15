@@ -4,13 +4,12 @@ namespace AndreasElia\Tests;
 
 use AndreasElia\Forum\ForumServiceProvider;
 use AndreasElia\Tests\Stubs\Models\User;
+use Faker\Factory as Faker;
 use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\BrowserKit\TestCase;
-use Faker\Factory as Faker;
 
 class IntegrationTestCase extends TestCase
 {
-
     /**
      * Load package service provider.
      *

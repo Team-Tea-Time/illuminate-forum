@@ -24,8 +24,8 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required',
-            'discussion_id' => 'required'
+            'content'       => 'required',
+            'discussion_id' => 'required',
         ];
     }
 }
