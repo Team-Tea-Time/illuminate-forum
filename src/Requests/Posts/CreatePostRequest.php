@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreasElia\Forum\Requests\Posts;
+namespace Bitporch\Forum\Requests\Posts;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'content'       => 'required',
+            'content' => 'required',
             'discussion_id' => 'required',
         ];
     }

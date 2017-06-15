@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreasElia\Forum\Requests\Groups;
+namespace Bitporch\Forum\Requests\Groups;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,7 +25,7 @@ class UpdateGroupRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'slug'  => 'required',
+            'slug' => 'required',
             'color' => 'required',
         ];
     }

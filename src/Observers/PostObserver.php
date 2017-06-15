@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreasElia\Forum\Observers;
+namespace Bitporch\Forum\Observers;
 
-use AndreasElia\Forum\Models\Post;
+use Bitporch\Forum\Models\Post;
 
 class PostObserver
 {

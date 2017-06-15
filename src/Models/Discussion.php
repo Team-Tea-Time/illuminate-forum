@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreasElia\Forum\Models;
+namespace Bitporch\Forum\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -35,12 +35,12 @@ class Discussion extends Model
 
     public function group()
     {
-        return $this->belongsTo('AndreasElia\Forum\Models\Group');
+        return $this->belongsTo('Bitporch\Forum\Models\Group');
     }
 
     public function posts()
     {
-        return $this->hasMany('AndreasElia\Forum\Models\Post');
+        return $this->hasMany('Bitporch\Forum\Models\Post');
     }
 
     public function post()

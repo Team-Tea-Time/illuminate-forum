@@ -1,11 +1,11 @@
 <?php
 
-namespace AndreasElia\Tests\Integration;
+namespace Bitporch\Tests\Integration;
 
-use AndreasElia\Forum\Models\Discussion;
-use AndreasElia\Forum\Models\Post;
-use AndreasElia\Tests\Stubs\Models\User;
-use AndreasElia\Tests\TestCase;
+use Bitporch\Forum\Models\Discussion;
+use Bitporch\Forum\Models\Post;
+use Bitporch\Tests\Stubs\Models\User;
+use Bitporch\Tests\TestCase;
 
 class PostTest extends TestCase
 {
@@ -18,7 +18,7 @@ class PostTest extends TestCase
         $this->actingAs($user)
             ->post(route('forum.posts.store'), [
                 'discussion_id' => $discussion->id,
-                'content'       => $content,
+                'content' => $content,
             ])
             ->assertResponseStatus(302)
             ->assertRedirectedToRoute('forum.discussions.show', $discussion->id);
@@ -31,7 +31,7 @@ class PostTest extends TestCase
         $this->post(route('forum.posts.store'))
             ->assertResponseStatus(302)
             ->assertSessionHasErrors([
-                'content'       => 'The content field is required.',
+                'content' => 'The content field is required.',
                 'discussion_id' => 'The discussion id field is required.',
             ]);
     }

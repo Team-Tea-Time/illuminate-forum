@@ -1,9 +1,9 @@
 {
-    "name": "andreaselia/laravel-forum",
+    "name": "bitporch/laravel-forum",
     "description": "A simple bootstrap styled forum package created for ease of use and expansion.",
     "keywords": ["laravel", "forum", "discussion"],
     "license": "MIT",
-    "homepage": "https://github.com/AndreasElia/laravel-forum",
+    "homepage": "https://github.com/bitporch/laravel-forum",
     "authors": [
         {
             "name": "Andreas Elia",
@@ -30,12 +30,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "AndreasElia\\Forum\\": "src"
+            "Bitporch\\Forum\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AndreasElia\\Tests\\": "tests"
+            "Bitporch\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -44,7 +44,7 @@
         },
         "laravel": {
             "providers": [
-                "AndreasElia\\Forum\\ForumServiceProvider"
+                "Bitporch\\Forum\\ForumServiceProvider"
             ]
         }
     },

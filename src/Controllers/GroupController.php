@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreasElia\Forum\Controllers;
+namespace Bitporch\Forum\Controllers;
 
-use AndreasElia\Forum\Models\Group;
-use AndreasElia\Forum\Requests\Groups\CreateGroupRequest;
-use AndreasElia\Forum\Requests\Groups\UpdateGroupRequest;
+use Bitporch\Forum\Models\Group;
+use Bitporch\Forum\Requests\Groups\CreateGroupRequest;
+use Bitporch\Forum\Requests\Groups\UpdateGroupRequest;
 
 class GroupController extends Controller
 {
@@ -31,7 +31,7 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \AndreasElia\Forum\Requests\Groups\CreateGroupRequest $request
+     * @param \Bitporch\Forum\Requests\Groups\CreateGroupRequest $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -59,7 +59,7 @@ class GroupController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \AndreasElia\Forum\Requests\Groups\UpdateGroupRequest $request
+     * @param \Bitporch\Forum\Requests\Groups\UpdateGroupRequest $request
      * @param string                                                $slug
      *
      * @return \Illuminate\Http\Response

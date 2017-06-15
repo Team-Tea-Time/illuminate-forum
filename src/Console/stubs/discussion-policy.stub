@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use AndreasElia\Forum\Models\Discussion;
+use Bitporch\Forum\Models\Discussion;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class DiscussionPolicy

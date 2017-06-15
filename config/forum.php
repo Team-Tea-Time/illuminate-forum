@@ -4,7 +4,7 @@ return [
 
     'prefix' => 'forum',
 
-    'namespace' => '\AndreasElia\Forum\Controllers',
+    'namespace' => '\Bitporch\Forum\Controllers',
 
     'user' => App\User::class,
 

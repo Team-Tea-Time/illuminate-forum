@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreasElia\Forum\Controllers;
+namespace Bitporch\Forum\Controllers;
 
-use AndreasElia\Forum\Models\Post;
-use AndreasElia\Forum\Requests\Posts\CreatePostRequest;
-use AndreasElia\Forum\Requests\Posts\UpdatePostRequest;
+use Bitporch\Forum\Models\Post;
+use Bitporch\Forum\Requests\Posts\CreatePostRequest;
+use Bitporch\Forum\Requests\Posts\UpdatePostRequest;
 
 class PostController extends Controller
 {
@@ -31,7 +31,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \AndreasElia\Forum\Requests\Posts\CreatePostRequest $request
+     * @param \Bitporch\Forum\Requests\Posts\CreatePostRequest $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,7 +57,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \AndreasElia\Forum\Requests\Posts\UpdatePostRequest $request
+     * @param \Bitporch\Forum\Requests\Posts\UpdatePostRequest $request
      * @param int                                                 $id
      *
      * @return \Illuminate\Http\Response

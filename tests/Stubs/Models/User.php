@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreasElia\Tests\Stubs\Models;
+namespace Bitporch\Tests\Stubs\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;

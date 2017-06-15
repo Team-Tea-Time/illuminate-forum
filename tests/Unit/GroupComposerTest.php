@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreasElia\Tests\Unit;
+namespace Bitporch\Tests\Unit;
 
-use AndreasElia\Forum\Models\Group;
-use AndreasElia\Forum\ViewComposers\GroupComposer;
-use AndreasElia\Tests\TestCase;
+use Bitporch\Forum\Models\Group;
+use Bitporch\Forum\ViewComposers\GroupComposer;
+use Bitporch\Tests\TestCase;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Mockery;

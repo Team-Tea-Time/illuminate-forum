@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreasElia\Forum\Requests\Discussions;
+namespace Bitporch\Forum\Requests\Discussions;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,7 +25,7 @@ class UpdateDiscussionRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'slug'  => 'required',
+            'slug' => 'required',
         ];
     }
 }

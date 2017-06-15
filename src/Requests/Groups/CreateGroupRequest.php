@@ -1,6 +1,6 @@
 <?php
 
-namespace AndreasElia\Forum\Requests\Groups;
+namespace Bitporch\Forum\Requests\Groups;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,8 +25,8 @@ class CreateGroupRequest extends FormRequest
     {
         return [
             'discussion_id' => 'required',
-            'title'         => 'required',
-            'slug'          => 'required',
+            'title' => 'required',
+            'slug' => 'required',
         ];
     }
 

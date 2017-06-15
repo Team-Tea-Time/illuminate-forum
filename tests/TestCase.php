@@ -1,9 +1,9 @@
 <?php
 
-namespace AndreasElia\Tests;
+namespace Bitporch\Tests;
 
-use AndreasElia\Forum\ForumServiceProvider;
-use AndreasElia\Tests\Stubs\Models\User;
+use Bitporch\Forum\ForumServiceProvider;
+use Bitporch\Tests\Stubs\Models\User;
 use Faker\Factory as Faker;
 use Mockery;
 use Orchestra\Database\ConsoleServiceProvider;
@@ -35,21 +35,21 @@ class TestCase extends BaseTestCase
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
         $app['config']->set('database.connections.testbench', [
-            'driver'    => 'sqlite',
-            'database'  => ':memory:',
-            'prefix'    => '',
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
         ]);
         $app['config']->set('forum.user', User::class);
         $app['config']->set('forum.prefix', 'forum');
-        $app['config']->set('forum.namespace', '\AndreasElia\Forum\Controllers');
+        $app['config']->set('forum.namespace', '\Bitporch\Forum\Controllers');
     }
 
     protected function setUp()
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(__DIR__.'/Stubs/migrations');
-        $this->withFactories(__DIR__.'/../database/factories/');
+        $this->loadMigrationsFrom(__DIR__ . '/Stubs/migrations');
+        $this->withFactories(__DIR__ . '/../database/factories/');
 
         $this->artisan('migrate', ['--database' => 'testbench']);
     }

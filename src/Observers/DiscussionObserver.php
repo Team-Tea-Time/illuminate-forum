@@ -1,8 +1,8 @@
 <?php
 
-namespace AndreasElia\Forum\Observers;
+namespace Bitporch\Forum\Observers;
 
-use AndreasElia\Forum\Models\Discussion;
+use Bitporch\Forum\Models\Discussion;
 
 class DiscussionObserver
 {

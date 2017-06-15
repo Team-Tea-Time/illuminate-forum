@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use AndreasElia\Forum\Models\Post;
+use Bitporch\Forum\Models\Post;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PostPolicy

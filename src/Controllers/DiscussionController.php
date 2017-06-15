@@ -1,10 +1,10 @@
 <?php
 
-namespace AndreasElia\Forum\Controllers;
+namespace Bitporch\Forum\Controllers;
 
-use AndreasElia\Forum\Models\Discussion;
-use AndreasElia\Forum\Requests\Discussions\CreateDiscussionRequest;
-use AndreasElia\Forum\Requests\Discussions\UpdateDiscussionRequest;
+use Bitporch\Forum\Models\Discussion;
+use Bitporch\Forum\Requests\Discussions\CreateDiscussionRequest;
+use Bitporch\Forum\Requests\Discussions\UpdateDiscussionRequest;
 
 class DiscussionController extends Controller
 {
@@ -31,7 +31,7 @@ class DiscussionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \AndreasElia\Forum\Requests\Discussions\CreateDiscussionRequest $request
+     * @param \Bitporch\Forum\Requests\Discussions\CreateDiscussionRequest $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -61,7 +61,7 @@ class DiscussionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \AndreasElia\Forum\Requests\Discussions\UpdateDiscussionRequest $request
+     * @param \Bitporch\Forum\Requests\Discussions\UpdateDiscussionRequest $request
      * @param int                                                             $id
      *
      * @return \Illuminate\Http\Response

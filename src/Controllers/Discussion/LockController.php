@@ -1,9 +1,9 @@
 <?php
 
-namespace AndreasElia\Forum\Controllers\Discussion;
+namespace Bitporch\Forum\Controllers\Discussion;
 
-use AndreasElia\Forum\Controllers\Controller;
-use AndreasElia\Forum\Models\Discussion;
+use Bitporch\Forum\Controllers\Controller;
+use Bitporch\Forum\Models\Discussion;
 use Carbon\Carbon;
 
 class LockController extends Controller
