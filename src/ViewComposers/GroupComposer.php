@@ -3,7 +3,7 @@
 namespace AndreasElia\Forum\ViewComposers;
 
 use AndreasElia\Forum\Models\Group;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 
 class GroupComposer
 {

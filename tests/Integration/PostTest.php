@@ -4,10 +4,10 @@ namespace AndreasElia\Tests\Integration;
 
 use AndreasElia\Forum\Models\Discussion;
 use AndreasElia\Forum\Models\Post;
-use AndreasElia\Tests\IntegrationTestCase;
 use AndreasElia\Tests\Stubs\Models\User;
+use AndreasElia\Tests\TestCase;
 
-class PostTest extends IntegrationTestCase
+class PostTest extends TestCase
 {
     public function testCreatePost()
     {

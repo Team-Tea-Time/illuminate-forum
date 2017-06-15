@@ -13,8 +13,11 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name="AndreasElia/Laravel-Forum Test Suite">
-            <directory suffix="Test.php">./tests/</directory>
+        <testsuite name="Unit Tests Suite">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Integration Tests Suite">
+            <directory suffix="Test.php">./tests/Integration</directory>
         </testsuite>
     </testsuites>
 
