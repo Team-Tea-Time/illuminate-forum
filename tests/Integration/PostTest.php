@@ -18,7 +18,7 @@ class PostTest extends IntegrationTestCase
         $this->actingAs($user)
             ->post(route('forum.posts.store'), [
                 'discussion_id' => $discussion->id,
-                'content' => $content
+                'content'       => $content,
             ])
             ->assertResponseStatus(201);
 
@@ -30,8 +30,8 @@ class PostTest extends IntegrationTestCase
         $this->post(route('forum.posts.store'))
             ->assertResponseStatus(302)
             ->assertSessionHasErrors([
-                'content' => 'The content field is required.',
-                'discussion_id' => 'The discussion id field is required.'
+                'content'       => 'The content field is required.',
+                'discussion_id' => 'The discussion id field is required.',
             ]);
     }
 
