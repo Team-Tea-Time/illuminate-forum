@@ -35,9 +35,9 @@ class TestCase extends BaseTestCase
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
         $app['config']->set('database.connections.testbench', [
-            'driver' => 'sqlite',
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
+            'prefix'   => '',
         ]);
         $app['config']->set('forum.user', User::class);
         $app['config']->set('forum.prefix', 'forum');
@@ -48,8 +48,8 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(__DIR__ . '/Stubs/migrations');
-        $this->withFactories(__DIR__ . '/../database/factories/');
+        $this->loadMigrationsFrom(__DIR__.'/Stubs/migrations');
+        $this->withFactories(__DIR__.'/../database/factories/');
 
         $this->artisan('migrate', ['--database' => 'testbench']);
     }

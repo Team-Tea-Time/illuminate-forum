@@ -25,8 +25,8 @@ class CreateDiscussionRequest extends FormRequest
     {
         return [
             'group_id' => 'required',
-            'title' => 'required',
-            'content' => 'required',
+            'title'    => 'required',
+            'content'  => 'required',
         ];
     }
 }

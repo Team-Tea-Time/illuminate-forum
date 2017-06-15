@@ -25,7 +25,7 @@ class UpdateDiscussionRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'slug' => 'required',
+            'slug'  => 'required',
         ];
     }
 }

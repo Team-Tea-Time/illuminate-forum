@@ -58,7 +58,7 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Bitporch\Forum\Requests\Posts\UpdatePostRequest $request
-     * @param int                                                 $id
+     * @param int                                              $id
      *
      * @return \Illuminate\Http\Response
      */
