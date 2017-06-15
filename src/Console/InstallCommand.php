@@ -27,8 +27,8 @@ class InstallCommand extends Command
      */
     protected $policies = [
         'discussion-policy.stub' => 'DiscussionPolicy.php',
-        'group-policy.stub' => 'GroupPolicy.php',
-        'post-policy.stub' => 'PostPolicy.php',
+        'group-policy.stub'      => 'GroupPolicy.php',
+        'post-policy.stub'       => 'PostPolicy.php',
     ];
 
     /**
@@ -54,8 +54,8 @@ class InstallCommand extends Command
 
         foreach ($this->policies as $key => $value) {
             copy(
-                __DIR__ . '/stubs/' . $key,
-                app_path('Policies/' . $value)
+                __DIR__.'/stubs/'.$key,
+                app_path('Policies/'.$value)
             );
         }
     }

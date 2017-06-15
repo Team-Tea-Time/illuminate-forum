@@ -60,7 +60,7 @@ class GroupController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Bitporch\Forum\Requests\Groups\UpdateGroupRequest $request
-     * @param string                                                $slug
+     * @param string                                             $slug
      *
      * @return \Illuminate\Http\Response
      */
