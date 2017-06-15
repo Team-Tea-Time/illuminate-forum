@@ -3,7 +3,7 @@
 namespace AndreasElia\Forum\Controllers;
 
 use AndreasElia\Forum\Models\Discussion;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ForumController extends Controller
 {
