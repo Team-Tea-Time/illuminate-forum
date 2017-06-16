@@ -24,6 +24,10 @@
 
         <ul class="list-group">
             @each('forum::partials.post', $discussion->posts, 'post')
+
+            <li class="list-group-item">
+                {{ $discussion->posts->links() }}
+            </li>
         </ul>
 
         <div class="panel-footer text-center">

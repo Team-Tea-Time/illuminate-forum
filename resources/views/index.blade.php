@@ -7,6 +7,10 @@
         @if ($discussions)
             <ul class="list-group">
                 @each('forum::partials.discussion', $discussions, 'discussion')
+
+                <li class="list-group-item">
+                    {{ $discussions->links() }}
+                </li>
             </ul>
         @else
             No discussions to display.
