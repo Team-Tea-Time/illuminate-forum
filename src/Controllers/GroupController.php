@@ -45,14 +45,12 @@ class GroupController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param string $slug
+     * @param Group $group
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Group $group)
     {
-        $group = Group::where('slug', $slug)->with('discussions')->firstOrFail();
-
         return view('forum::groups.show')->with(compact('group'));
     }
 
@@ -60,13 +58,12 @@ class GroupController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Bitporch\Forum\Requests\Groups\UpdateGroupRequest $request
-     * @param string                                             $slug
+     * @param Group                                              $group
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGroupRequest $request, $slug)
+    public function update(UpdateGroupRequest $request, Group $group)
     {
-        $group = Group::where('slug', $slug)->firstOrFail();
         $group->update($request->all());
 
         return response($group, 200);
@@ -75,13 +72,12 @@ class GroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param string $slug
+     * @param Group $group
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy(Group $group)
     {
-        $group = Group::where('slug', $slug)->firstOrFail();
         $group->delete();
 
         return response($group, 204);

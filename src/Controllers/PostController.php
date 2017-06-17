@@ -45,11 +45,11 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param Post $post
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
         //
     }
@@ -58,13 +58,12 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Bitporch\Forum\Requests\Posts\UpdatePostRequest $request
-     * @param int                                              $id
+     * @param Post                                             $post
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, $id)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        $post = Post::find($id);
         $post->update($request->all());
 
         return redirect()->route('forum.discussions.show', $post->discussion_id);
@@ -73,14 +72,12 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Post $post
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $Post)
     {
-        $post = Post::find($id);
-
         $post->delete();
 
         return redirect()->route('forum.discussions.show', $post->discussion_id)->with('success', 'Post deleted successfully.');

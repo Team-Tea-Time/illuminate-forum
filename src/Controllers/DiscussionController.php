@@ -47,14 +47,12 @@ class DiscussionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param Discussion $discussion
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Discussion $discussion)
     {
-        $discussion = Discussion::where('id', $id)->with('posts')->firstOrFail();
-
         return view('forum::discussions.show')->with(compact('discussion'));
     }
 
@@ -62,13 +60,12 @@ class DiscussionController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Bitporch\Forum\Requests\Discussions\UpdateDiscussionRequest $request
-     * @param int                                                          $id
+     * @param Discussion                                                   $discussion
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDiscussionRequest $request, $id)
+    public function update(UpdateDiscussionRequest $request, Discussion $discussion)
     {
-        $discussion = Discussion::find($id);
         $discussion->update($request->all());
 
         return redirect()->route('forum.discussions.show', $discussion->id);
@@ -77,13 +74,12 @@ class DiscussionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Discussion $discussion
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Discussion $discussion)
     {
-        $discussion = Discussion::find($id);
         $discussion->delete();
 
         return redirect()->route('forum.home')->with('success', 'Discussion deleted successfully.');

@@ -3,6 +3,10 @@
 namespace Bitporch\Forum;
 
 use Bitporch\Forum\Console\InstallCommand;
+use Bitporch\Forum\Models\Discussion;
+use Bitporch\Forum\Models\Group;
+use Bitporch\Forum\Models\Post;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,6 +32,12 @@ class ForumServiceProvider extends ServiceProvider
         $this->registerPackageNamespaces();
 
         View::composer('*', 'Bitporch\Forum\ViewComposers\GroupComposer');
+
+        Route::model('discussion', Discussion::class);
+        Route::bind('group', function ($slug) {
+            return Group::where('slug', $slug)->firstOrFail();
+        });
+        Route::model('post', Post::class);
     }
 
     /**
