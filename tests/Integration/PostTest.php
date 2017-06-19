@@ -28,12 +28,30 @@ class PostTest extends TestCase
 
     public function testCreatePostValidation()
     {
-        $this->post(route('forum.posts.store'))
+        $this->withExceptionHandler()
+            ->post(route('forum.posts.store'))
             ->assertResponseStatus(302)
             ->assertSessionHasErrors([
                 'content'       => 'The content field is required.',
                 'discussion_id' => 'The discussion id field is required.',
             ]);
+    }
+
+    public function testUpdatePost()
+    {
+        $post = factory(Post::class)->create();
+        $user = factory(User::class)->create();
+        $content = $this->faker()->sentence;
+
+        $this->actingAs($user)
+            ->put(route('forum.posts.update', $post->id), [
+                'content'       => $content,
+            ])
+            ->assertResponseStatus(302)
+            ->assertRedirectedToRoute('forum.discussions.show', $post->discussion->id);
+
+        $this->seeInDatabase('posts', ['id' => $post->id, 'content' => $content, 'discussion_id' => $post->discussion->id]);
+        $this->dontSeeInDatabase('posts', ['id' => $post->id, 'content' => $post->content]);
     }
 
     public function testDestroyPost()
