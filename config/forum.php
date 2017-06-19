@@ -32,17 +32,13 @@ return [
     */
     'user'          => App\User::class,
 
-    /*
-    |--------------------------------------------------------------------------
-    | Middleware
-    |--------------------------------------------------------------------------
-    |
-    | Apply middleware for the routes registered by the package.
-    |
-    */
-    'middleware'   => [
-        'web' => [
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        ],
+    'api' => [
+        'namespace' => '\Bitporch\Forum\Controllers\Api'
     ],
+   
+    'web' => [
+         'middleware' => [
+           \Illuminate\Routing\Middleware\SubstituteBindings::class,
+           ]
+    ]
 ];
