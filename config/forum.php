@@ -33,12 +33,12 @@ return [
     'user'          => App\User::class,
 
     'api' => [
-        'namespace' => '\Bitporch\Forum\Controllers\Api'
+        'namespace' => '\Bitporch\Forum\Controllers\Api',
     ],
-   
+
     'web' => [
          'middleware' => [
            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-           ]
-    ]
+           ],
+    ],
 ];

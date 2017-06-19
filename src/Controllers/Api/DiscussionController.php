@@ -49,7 +49,7 @@ class DiscussionController extends Controller
      * Update the specified resource in storage.
      *
      * @param UpdateDiscussionRequest $request
-     * @param Discussion $discussion
+     * @param Discussion              $discussion
      *
      * @return \Illuminate\Http\Response
      */
