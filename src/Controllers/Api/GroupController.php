@@ -49,7 +49,7 @@ class GroupController extends Controller
      * Update the specified resource in storage.
      *
      * @param UpdateGroupRequest $request
-     * @param Group $group
+     * @param Group              $group
      *
      * @return \Illuminate\Http\Response
      */
