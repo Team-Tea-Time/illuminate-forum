@@ -10,7 +10,7 @@ return [
     | This defines the prefix for all of the packages web routes.
     |
     */
-    'prefix'        => 'forum',
+    'prefix' => 'forum',
 
     /*
     |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ return [
     | Base namespace for all controllers available in the package.
     |
     */
-    'namespace'     => '\Bitporch\Forum\Controllers',
+    'namespace' => '\Bitporch\Forum\Controllers',
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return [
     | Set your eloquent model for your users.
     |
     */
-    'user'          => App\User::class,
+    'user' => App\User::class,
 
     'api' => [
         'namespace' => '\Bitporch\Forum\Controllers\Api',
