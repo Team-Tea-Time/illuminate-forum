@@ -31,7 +31,7 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Bitporch\Forum\Requests\Groups\CreateGroupRequest $request
+     * @param CreateGroupRequest $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,8 +57,8 @@ class GroupController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Bitporch\Forum\Requests\Groups\UpdateGroupRequest $request
-     * @param Group                                              $group
+     * @param UpdateGroupRequest $request
+     * @param Group              $group
      *
      * @return \Illuminate\Http\Response
      */

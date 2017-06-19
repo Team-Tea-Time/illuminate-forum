@@ -31,7 +31,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Bitporch\Forum\Requests\Posts\CreatePostRequest $request
+     * @param CreatePostRequest $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,8 +57,8 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Bitporch\Forum\Requests\Posts\UpdatePostRequest $request
-     * @param Post                                             $post
+     * @param UpdatePostRequest $request
+     * @param Post              $post
      *
      * @return \Illuminate\Http\Response
      */

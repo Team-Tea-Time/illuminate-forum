@@ -31,7 +31,7 @@ class DiscussionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Bitporch\Forum\Requests\Discussions\CreateDiscussionRequest $request
+     * @param CreateDiscussionRequest $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -59,8 +59,8 @@ class DiscussionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Bitporch\Forum\Requests\Discussions\UpdateDiscussionRequest $request
-     * @param Discussion                                                   $discussion
+     * @param UpdateDiscussionRequest $request
+     * @param Discussion              $discussion
      *
      * @return \Illuminate\Http\Response
      */
