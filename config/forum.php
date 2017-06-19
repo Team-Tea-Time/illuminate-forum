@@ -37,8 +37,8 @@ return [
     ],
 
     'web' => [
-         'middleware' => [
-           \Illuminate\Routing\Middleware\SubstituteBindings::class,
-           ],
+        'middleware' => [
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
     ],
 ];
