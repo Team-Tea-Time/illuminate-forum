@@ -3,7 +3,9 @@
 namespace Bitporch\Forum;
 
 use Bitporch\Forum\Console\InstallCommand;
+use Bitporch\Forum\Models\Discussion;
 use Bitporch\Forum\Models\Group;
+use Bitporch\Forum\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -27,13 +29,10 @@ class ForumServiceProvider extends ServiceProvider
             __DIR__.'/../config/forum.php' => config_path('forum.php'),
         ], 'config');
 
+        $this->registerRouteBindings();
         $this->registerPackageNamespaces();
 
         View::composer('*', 'Bitporch\Forum\ViewComposers\GroupComposer');
-
-        Route::bind('group', function ($slug) {
-            return Group::where('slug', $slug)->firstOrFail();
-        });
     }
 
     /**
@@ -44,6 +43,20 @@ class ForumServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    /**
+     * Register route bindings for models. We don't need to do this since we're
+     * following the conventions by which route model bindings will happen
+     * automatically, but this makes it obvious that the package relies on it.
+     *
+     * @return void
+     */
+    public function registerRouteBindings()
+    {
+        Route::model('discussion', Discussion::class);
+        Route::model('group', Group::class);
+        Route::model('post', Post::class);
     }
 
     /**
