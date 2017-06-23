@@ -83,6 +83,7 @@
 
         .forum.discussions #content .panel-options:first-of-type {
             margin-right: 5px;
+            display: inline-block;
         }
 
         .forum.discussions #content .panel-options {

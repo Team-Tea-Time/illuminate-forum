@@ -3,8 +3,14 @@
 
     <input type="hidden" name="discussion_id" value="{{ $discussion->id }}">
 
-    <div class="form-group">
+    <div class="form-group"{{ $errors->has('content') ? ' has-error' : '' }}>
         <textarea name="content" id="content" rows="3" placeholder="Enter your reply here..." class="form-control"></textarea>
+
+        @if ($errors->has('content'))
+            <span class="help-block">
+                <strong>{{ $errors->first('content') }}</strong>
+            </span>
+        @endif
     </div>
 
     <input type="submit" value="Submit" class="btn btn-success">

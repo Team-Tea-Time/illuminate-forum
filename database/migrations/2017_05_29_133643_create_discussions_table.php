@@ -21,8 +21,8 @@ class CreateDiscussionsTable extends Migration
             $table->integer('participants_count')->unsigned()->default(0);
             $table->integer('first_post_id')->unsigned()->default(0);
             $table->integer('last_post_id')->unsigned()->nullable();
-            $table->timestamp('locked_at')->nullable()->default(null);
-            $table->timestamp('stickied_at')->nullable()->default(null);
+            $table->timestamp('locked_at')->nullable();
+            $table->timestamp('stickied_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
