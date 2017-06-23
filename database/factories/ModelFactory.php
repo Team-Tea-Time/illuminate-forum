@@ -8,8 +8,8 @@ use Bitporch\Tests\Stubs\Models\User;
 /* @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Discussion::class, function (Faker\Generator $faker) {
     return [
-        'title' => $faker->sentence(6),
-        'slug'  => $faker->word,
+        'title'    => $faker->sentence(6),
+        'slug'     => $faker->word,
     ];
 });
 

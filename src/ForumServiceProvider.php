@@ -6,6 +6,8 @@ use Bitporch\Forum\Console\InstallCommand;
 use Bitporch\Forum\Models\Discussion;
 use Bitporch\Forum\Models\Group;
 use Bitporch\Forum\Models\Post;
+use Bitporch\Forum\Observers\DiscussionObserver;
+use Bitporch\Forum\Observers\PostObserver;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -31,6 +33,7 @@ class ForumServiceProvider extends ServiceProvider
 
         $this->registerRouteBindings();
         $this->registerPackageNamespaces();
+        $this->registerModelObservers();
 
         View::composer('*', 'Bitporch\Forum\ViewComposers\GroupComposer');
     }
@@ -46,9 +49,9 @@ class ForumServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register route bindings for models. We don't need to do this since we're
-     * following the conventions by which route model bindings will happen
-     * automatically, but this makes it obvious that the package relies on it.
+     * Register route bindings for models. We don't need to do this since we're following
+     * the conventions by which route model bindings will happen automatically,
+     * but this makes it obvious that the package relies on it.
      *
      * @return void
      */
@@ -71,5 +74,16 @@ class ForumServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'forum');
         $this->loadTranslationsFrom(__DIR__.'/../resources/translations', 'forum');
+    }
+
+    /**
+     * Register the model observers.
+     *
+     * @return void
+     */
+    public function registerModelObservers()
+    {
+        Discussion::observe(DiscussionObserver::class);
+        Post::observe(PostObserver::class);
     }
 }
