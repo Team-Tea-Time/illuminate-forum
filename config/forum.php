@@ -47,16 +47,16 @@ return [
     */
 
     'api' => [
-        'enabled' => false,
-        'prefix' => 'api/forum',
-        'namespace' => '\Bitporch\Forum\Controllers\Api',
-        'middleware' => 'auth:api'
+        'enabled'    => false,
+        'prefix'     => 'api/forum',
+        'namespace'  => '\Bitporch\Forum\Controllers\Api',
+        'middleware' => 'auth:api',
     ],
 
     'web' => [
-        'enabled' => true,
-        'prefix' => 'forum',
-        'namespace' => '\Bitporch\Forum\Controllers',
+        'enabled'    => true,
+        'prefix'     => 'forum',
+        'namespace'  => '\Bitporch\Forum\Controllers',
         'middleware' => [
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Illuminate\Session\Middleware\StartSession::class,
