@@ -29,7 +29,7 @@ class ForumServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__ . '/../config/forum.php' => config_path('forum.php'),
+            __DIR__.'/../config/forum.php' => config_path('forum.php'),
         ], 'config');
 
         $this->registerRouteBindings();
@@ -71,11 +71,11 @@ class ForumServiceProvider extends ServiceProvider
      */
     public function registerPackageNamespaces()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
-        $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'forum');
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/translations', 'forum');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'forum');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/translations', 'forum');
     }
 
     /**

@@ -32,6 +32,6 @@ class Group extends Model
 
     public function discussions()
     {
-        return $this->hasMany('Bitporch\Forum\Models\Discussion');
+        return $this->belongsToMany(Discussion::class);
     }
 }

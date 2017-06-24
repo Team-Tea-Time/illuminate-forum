@@ -32,6 +32,25 @@ return [
     */
     'user' => App\User::class,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Group Mode
+    |--------------------------------------------------------------------------
+    |
+    | Set the group mode to either "nested" or "flat" for a different forum
+    | experience.
+    |
+    */
+    'group_mode' => 'nested',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Namespacing and Middleware
+    |--------------------------------------------------------------------------
+    |
+    | Include whichever middleware(s) and namespace(s) you want here.
+    |
+    */
     'api' => [
         'namespace' => '\Bitporch\Forum\Controllers\Api',
     ],

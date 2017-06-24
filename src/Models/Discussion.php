@@ -33,14 +33,14 @@ class Discussion extends Model
         'stickied_at',
     ];
 
-    public function group()
+    public function groups()
     {
-        return $this->belongsTo('Bitporch\Forum\Models\Group');
+        return $this->belongsToMany(Group::class);
     }
 
     public function posts()
     {
-        return $this->hasMany('Bitporch\Forum\Models\Post');
+        return $this->hasMany(Post::class);
     }
 
     public function post()

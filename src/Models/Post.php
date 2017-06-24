@@ -22,11 +22,11 @@ class Post extends Model
 
     public function discussion()
     {
-        return $this->belongsTo('Bitporch\Forum\Models\Discussion');
+        return $this->belongsTo(Discussion::class);
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(config('forum.user'));
     }
 }
