@@ -4,10 +4,11 @@ namespace Bitporch\Forum\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Kalnoy\Nestedset\NodeTrait;
 
 class Group extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, NodeTrait;
 
     /**
      * The attributes that are mass assignable.

@@ -12,7 +12,8 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "illuminate/database": "5.4.*"
+        "illuminate/database": "5.4.*",
+        "kalnoy/nestedset": "^4.2"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.6",
