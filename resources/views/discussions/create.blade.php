@@ -15,42 +15,26 @@
 
                         @if (count($groups))
                             @foreach ($groups as $group)
-                                @if (old('group_id') == $group->id)
-                                    <option value="{{ $group->id }}" selected>{{ $group->name }}</option>
-                                @else
-                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
-                                @endif
+                                    <option value="{{ $group->id }}" @is_selected(old('group_id'), $group->id)>{{ $group->name }}</option>
                             @endforeach
                         @endif
                     </select>
 
-                    @if ($errors->has('group_id'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('group_id') }}</strong>
-                        </span>
-                    @endif
+                    @error('group_id')
                 </div>
 
                 <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" value="{{ old('title') }}" class="form-control">
 
-                    @if ($errors->has('title'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('title') }}</strong>
-                        </span>
-                    @endif
+                    @error('title')
                 </div>
 
                 <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                     <label for="content">Content</label>
                     <textarea name="content" id="content" class="form-control" rows="12">{{ old('content') }}</textarea>
 
-                    @if ($errors->has('content'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('content') }}</strong>
-                        </span>
-                    @endif
+                    @error('content')
                 </div>
 
                 <button class="btn btn-success">Submit</button>

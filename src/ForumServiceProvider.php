@@ -8,6 +8,7 @@ use Bitporch\Forum\Models\Group;
 use Bitporch\Forum\Models\Post;
 use Bitporch\Forum\Observers\DiscussionObserver;
 use Bitporch\Forum\Observers\PostObserver;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -28,12 +29,13 @@ class ForumServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/../config/forum.php' => config_path('forum.php'),
+            __DIR__ . '/../config/forum.php' => config_path('forum.php'),
         ], 'config');
 
         $this->registerRouteBindings();
         $this->registerPackageNamespaces();
         $this->registerModelObservers();
+        $this->registerBladeDirectives();
 
         View::composer('*', 'Bitporch\Forum\ViewComposers\GroupComposer');
     }
@@ -69,11 +71,11 @@ class ForumServiceProvider extends ServiceProvider
      */
     public function registerPackageNamespaces()
     {
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'forum');
-        $this->loadTranslationsFrom(__DIR__.'/../resources/translations', 'forum');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'forum');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/translations', 'forum');
     }
 
     /**
@@ -85,5 +87,25 @@ class ForumServiceProvider extends ServiceProvider
     {
         Discussion::observe(DiscussionObserver::class);
         Post::observe(PostObserver::class);
+    }
+
+    /**
+     * @return void
+     */
+    public function registerBladeDirectives()
+    {
+        Blade::directive('is_selected', function ($expected, $actual) {
+            return ($expected == $actual) ? 'selected' : '';
+        });
+        Blade::directive('error', function ($type) {
+            return '<?php
+                if($errors->has($type)) {
+                    echo "<span class=\"help-block\">
+                        <strong>{{ $errors->first($type) }}</strong>
+                    </span>";
+                }
+                ?>
+            ';
+        });
     }
 }

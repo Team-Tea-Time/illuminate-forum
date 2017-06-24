@@ -12,41 +12,25 @@
                     <label for="group">Group</label>
                     <select name="group" id="group" class="form-control">
                         @foreach ($groups as $group)
-                            @if ($discussion->group_id == $group->id)
-                                <option value="{{ $group->id }}" selected>{{ $group->name }}</option>
-                            @else
-                                <option value="{{ $group->id }}">{{ $group->name }}</option>
-                            @endif
+                                <option value="{{ $group->id }}" @is_selected($discussion->group, $group->id)>{{ $group->name }}</option>
                         @endforeach
                     </select>
 
-                    @if ($errors->has('group_id'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('group_id') }}</strong>
-                        </span>
-                    @endif
+                    @error('group_id')
                 </div>
 
                 <div class="form-group"{{ $errors->has('title') ? ' has-error' : '' }}>
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" value="{{ $discussion->title }}" class="form-control">
 
-                    @if ($errors->has('title'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('title') }}</strong>
-                        </span>
-                    @endif
+                    @error('title')
                 </div>
 
                 <div class="form-group"{{ $errors->has('content') ? ' has-error' : '' }}>
                     <label for="content">Content</label>
                     <textarea name="content" id="content" class="form-control">{{ $discussion->post->content }}</textarea>
 
-                    @if ($errors->has('content'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('content') }}</strong>
-                        </span>
-                    @endif
+                    @error('content')
                 </div>
 
                 <button class="btn btn-success">Save</button>
