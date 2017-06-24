@@ -4,32 +4,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | URL Prefix
-    |--------------------------------------------------------------------------
-    |
-    | This defines the prefix for all of the packages web routes.
-    |
-    */
-    'prefix' => 'forum',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Controllers Namespace
-    |--------------------------------------------------------------------------
-    |
-    | Base namespace for all controllers available in the package.
-    |
-    */
-    'namespace' => '\Bitporch\Forum\Controllers',
-
-    /*
-    |--------------------------------------------------------------------------
     | User Model
     |--------------------------------------------------------------------------
     |
     | Set your eloquent model for your users.
     |
     */
+
     'user' => App\User::class,
 
     /*
@@ -41,25 +22,46 @@ return [
     | experience.
     |
     */
+
     'group_mode' => 'nested',
 
     /*
     |--------------------------------------------------------------------------
-    | Namespacing and Middleware
+    | Discussion Group Limit
     |--------------------------------------------------------------------------
     |
-    | Include whichever middleware(s) and namespace(s) you want here.
+    | Set the maximum number of groups that a discussion can be created in.
+    | Only applicable if group_mode is set to 'flat'.
     |
     */
+
+    'discussion_group_limit' => 3,
+
+    /*
+    |--------------------------------------------------------------------------
+    | API and Web
+    |--------------------------------------------------------------------------
+    |
+    | Include whichever middleware and namespace(s) you want here.
+    |
+    */
+
     'api' => [
+        'enabled' => false,
+        'prefix' => 'api/forum',
         'namespace' => '\Bitporch\Forum\Controllers\Api',
+        'middleware' => 'auth:api'
     ],
 
     'web' => [
+        'enabled' => true,
+        'prefix' => 'forum',
+        'namespace' => '\Bitporch\Forum\Controllers',
         'middleware' => [
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         ],
     ],
+
 ];

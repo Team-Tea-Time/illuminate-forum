@@ -72,8 +72,12 @@ class ForumServiceProvider extends ServiceProvider
     public function registerPackageNamespaces()
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+        if (config('forum.api.enabled')) {
+            $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+        }
+        if (config('forum.web.enabled')) {
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        }
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'forum');
         $this->loadTranslationsFrom(__DIR__.'/../resources/translations', 'forum');
     }

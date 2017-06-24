@@ -1,6 +1,6 @@
 <?php
 
-Route::prefix('api/forum')->middleware('auth:api')->namespace(config('forum.api.namespace'))->group(function () {
+Route::prefix(config('forum.api.prefix'))->middleware(config('forum.api.middleware'))->namespace(config('forum.api.namespace'))->name('forum.api.')->group(function () {
     Route::resource('discussions', 'DiscussionController', ['except' => ['create', 'edit']]);
     Route::resource('groups', 'GroupController', ['except' => ['create', 'edit']]);
     Route::resource('posts', 'PostController', ['except' => ['create', 'edit']]);

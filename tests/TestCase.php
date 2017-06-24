@@ -44,9 +44,10 @@ class TestCase extends BaseTestCase
             'prefix'   => '',
         ]);
         $app['config']->set('forum.user', User::class);
-        $app['config']->set('forum.prefix', 'forum');
-        $app['config']->set('forum.namespace', '\Bitporch\Forum\Controllers');
-        $app['config']->set('forum.middleware.web', [SubstituteBindings::class]);
+        $app['config']->set('forum.web.enabled', true);
+        $app['config']->set('forum.web.prefix', 'forum');
+        $app['config']->set('forum.web.namespace', '\Bitporch\Forum\Controllers');
+        $app['config']->set('forum.web.middleware', [SubstituteBindings::class]);
     }
 
     protected function setUp()
