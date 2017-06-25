@@ -15,7 +15,7 @@ class PostObserver
      */
     public function created(Post $post)
     {
-        $discussion = $post->discussion();
+        $discussion = $post->discussion;
         $discussion->update([
             'posts_count'  => ($discussion->posts_count + 1),
             'last_post_id' => $post->user_id,
@@ -31,7 +31,7 @@ class PostObserver
      */
     public function deleting(Post $post)
     {
-        $discussion = $post->discussion();
+        $discussion = $post->discussion;
         $discussion->update(['posts_count' => ($discussion->posts_count - 1)]);
     }
 }
