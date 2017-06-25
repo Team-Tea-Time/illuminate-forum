@@ -71,11 +71,7 @@ return [
         'enabled'    => true,
         'prefix'     => 'forum',
         'namespace'  => '\Bitporch\Forum\Controllers',
-        'middleware' => [
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        ],
+        'middleware' => 'web',
     ],
 
 ];
