@@ -16,7 +16,9 @@ class GroupComposer
      */
     public function compose(View $view)
     {
-        $groups = Group::all();
+        $groups = Group::where('parent_id', null)
+            ->with('descendants')
+            ->get();
 
         $view->with('groups', $groups);
     }

@@ -9,42 +9,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* Space out content a bit */
+        /* Space the content away from the header */
         body.forum {
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-
-        /* Everything gets side spacing for mobile first views */
-        .forum .header,
-        .forum .footer {
-            padding-right: 15px;
-            padding-left: 15px;
-        }
-
-        /* Custom page header */
-        .forum .header {
-            padding-bottom: 20px;
-        }
-
-        @media screen and (min-width: 768px) {
-            .forum .header {
-                border-bottom: 1px solid #e5e5e5;
-            }
-        }
-
-        /* Make the masthead heading the same height as the navigation */
-        .forum .header h3 {
-            margin-top: 0;
-            margin-bottom: 0;
-            line-height: 40px;
-        }
-
-        /* Custom page footer */
-        .forum .footer {
-            padding-top: 19px;
-            color: #777;
-            border-top: 1px solid #e5e5e5;
+            padding-top: 70px;
         }
 
         /* Customize container */
@@ -52,22 +19,43 @@
             margin: 30px 0;
         }
 
-        /* Responsive: Portrait tablets and up */
-        @media screen and (min-width: 768px) {
-            /* Remove the padding we set earlier */
-            .forum .header,
-            .forum .footer {
-                padding-right: 0;
-                padding-left: 0;
-            }
+        /* Sidebar */
+        .forum #sidebar {
+            display: none;
+        }
 
-            /* Space out the masthead */
-            .forum .header {
-                margin-bottom: 30px;
+        @media (min-width: 768px) {
+            .forum #sidebar {
+                display: block;
             }
         }
 
-        /* Sidebar */
+        .forum #sidebar .list-group.list-group-root {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .forum #sidebar .list-group.list-group-root .list-group {
+            margin-bottom: 0;
+        }
+
+        .forum #sidebar .list-group.list-group-root .list-group-item {
+            border-radius: 0;
+            border-width: 1px 0 0 0;
+        }
+
+        .forum #sidebar .list-group.list-group-root > .list-group-item:first-child {
+            border-top-width: 0;
+        }
+
+        .forum #sidebar .list-group.list-group-root > .list-group > .list-group-item {
+            padding-left: 30px;
+        }
+
+        .forum #sidebar .list-group.list-group-root > .list-group > .list-group > .list-group-item {
+            padding-left: 45px;
+        }
+
         .forum #sidebar a.btn-block {
             margin-bottom: 15px;
         }
@@ -108,9 +96,9 @@
     @yield('head')
 </head>
 <body class="{{ collect(request()->segments())->implode(' ') }}">
-    <div class="container">
-        @include('forum::partials.header')
+    @include('forum::partials.header')
 
+    <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-3" id="sidebar">
                 @include('forum::partials.sidebar')
@@ -120,8 +108,6 @@
                 @yield('content')
             </div>
         </div>
-
-        @include('forum::partials.footer')
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
