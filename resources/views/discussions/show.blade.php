@@ -26,14 +26,10 @@
 
         <ul class="list-group">
             @each('forum::partials.post', $discussion->posts, 'post')
-
-            <li class="list-group-item">
-                {{ $discussion->posts->links() }}
-            </li>
         </ul>
 
-        <div class="panel-footer text-center">
-            @include('forum::partials.quick-reply')
-        </div>
+        @include('forum::partials.paginator', ['resource' => $discussion->posts])
     </div>
+
+    @include('forum::partials.quick-reply')
 @endsection

@@ -64,7 +64,11 @@
             margin-bottom: 0;
         }
 
-        /* Discussions */
+        /* Content area */
+        .forum #content .panel .panel-footer .pagination {
+            margin: 0;
+        }
+
         .forum #content .list-group .list-group-item p.meta {
             margin: 0;
         }

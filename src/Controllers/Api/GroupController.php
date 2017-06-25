@@ -42,6 +42,9 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
+        $group->discussions = $group->discussions()
+            ->paginate(config('forum.pagination.discussions'));
+
         return response($group);
     }
 

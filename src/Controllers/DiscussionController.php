@@ -53,6 +53,8 @@ class DiscussionController extends Controller
      */
     public function show(Discussion $discussion)
     {
+        $discussion->posts = $discussion->posts()->paginate(config('pagination.posts'));
+
         return view('forum::discussions.show')->with(compact('discussion'));
     }
 

@@ -20,6 +20,6 @@ class GroupComposer
             ->with('descendants')
             ->get();
 
-        $view->with('groups', $groups);
+        $view->with(compact('groups'));
     }
 }
