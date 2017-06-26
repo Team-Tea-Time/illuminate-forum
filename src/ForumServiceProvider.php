@@ -101,14 +101,11 @@ class ForumServiceProvider extends ServiceProvider
      */
     public function registerBladeDirectives()
     {
-        Blade::directive('is_selected', function ($expected, $actual) {
-            return ($expected == $actual) ? 'selected' : '';
-        });
         Blade::directive('error', function ($type) {
             return '<?php
-                if($errors->has($type)) {
+                if($errors->has('.$type.')) {
                     echo "<span class=\"help-block\">
-                        <strong>{{ $errors->first($type) }}</strong>
+                        <strong>{$errors->first('.$type.')}</strong>
                     </span>";
                 }
                 ?>

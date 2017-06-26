@@ -1,8 +1,8 @@
 <div class="panel panel-default">
-    <div class="panel-body text-center">
-        <form action="{{ route('forum.posts.store') }}" method="POST" class="quick-reply">
-            {{ csrf_field() }}
+    <form action="{{ route('forum.posts.store') }}" method="POST" class="quick-reply">
+        {{ csrf_field() }}
 
+        <div class="panel-body text-center">
             <input type="hidden" name="discussion_id" value="{{ $discussion->id }}">
 
             <div class="form-group"{{ $errors->has('content') ? ' has-error' : '' }}>
@@ -14,8 +14,10 @@
                     </span>
                 @endif
             </div>
+        </div>
 
+        <div class="panel-footer text-center">
             <input type="submit" value="Submit" class="btn btn-success">
-        </form>
-    </div>
+        </div>
+    </form>
 </div>

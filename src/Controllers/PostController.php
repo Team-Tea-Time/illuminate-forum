@@ -37,7 +37,12 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        $post = Post::create($request->all());
+        $post = Post::create($request->only([
+            'discussion_id',
+            'content',
+        ]) + [
+            'user_id' => $request->user()->id,
+        ]);
 
         return redirect()->route('forum.discussions.show', $post->discussion_id);
     }

@@ -15,6 +15,7 @@ class Discussion extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'title',
         'slug',
         'posts_count',

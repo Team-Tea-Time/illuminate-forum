@@ -26,9 +26,9 @@
             </div>
         </div>
 
-        <ul class="list-group">
+        <table class="table table-bordered">
             @each('forum::partials.post', $discussion->posts, 'post')
-        </ul>
+        </table>
 
         @include('forum::partials.paginator', ['resource' => $discussion->posts])
     </div>

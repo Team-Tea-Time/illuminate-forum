@@ -82,16 +82,12 @@
             display: inline;
         }
 
-        .forum.discussions #content .row.post {
-            display: flex;
-        }
-
         .forum.discussions #content .row.post .user {
             border-right: 1px solid #ddd;
         }
 
         @media screen and (min-width: 768px) {
-            .forum.discussions #content .quick-reply .btn {
+            .forum.discussions #content .quick-reply .btn-success {
                 width: 50%;
             }
         }

@@ -12,7 +12,7 @@
                     <label for="group">Group</label>
                     <select name="group" id="group" class="form-control">
                         @foreach ($groups as $group)
-                                <option value="{{ $group->id }}" @is_selected($discussion->group, $group->id)>{{ $group->name }}</option>
+                                <option value="{{ $group->id }}"{{ (old('group_id') == $group->id) ? ' selected' : '' }}>{{ $group->name }}</option>
                         @endforeach
                     </select>
 
