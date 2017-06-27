@@ -4,14 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }} Forum</title>
+    <title>{{ config('app.name', 'Laravel') }} {{ trans('forum::forum') }}</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* Space the content away from the header */
-        body.forum {
-            padding-top: 70px;
+        /* Navbar */
+        .forum .navbar {
+            margin-bottom: 0;
+            border: none;
+        }
+
+        /* Jumbotron header */
+        .forum .jumbotron {
+            padding: 24px 0;
+        }
+
+        .forum .jumbotron h3 {
+            margin: 20px 0;
         }
 
         /* Customize container */

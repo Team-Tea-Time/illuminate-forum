@@ -1,10 +1,4 @@
-<a href="{{ route('forum.discussions.create') }}" class="btn btn-success btn-block">New Discussion</a>
-
-<form action="{{ route('forum.search') }}" method="POST">
-    <div class="form-group">
-        <input type="text" name="title" id="title" placeholder="Search Forum" class="form-control">
-    </div>
-</form>
+<a href="{{ route('forum.discussions.create') }}" class="btn btn-success btn-block">{{ trans('forum::new_discussion') }}</a>
 
 <div class="list-group list-group-root well">
     @if (count($groups))

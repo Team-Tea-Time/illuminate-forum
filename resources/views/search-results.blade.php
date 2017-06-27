@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading">Search Results</div>
+        <div class="panel-heading">{{ trans('forum::search_results') }}</div>
 
         @if ($discussions)
             <ul class="list-group">
                 @each('forum::partials.discussion', $discussions, 'discussion')
             </ul>
         @else
-            No search results to display.
+            {{ trans('forum::no_search_results') }}
         @endif
     </div>
 @endsection

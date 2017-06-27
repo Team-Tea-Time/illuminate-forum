@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading">Discussions</div>
+        <div class="panel-heading">{{ trans('forum::discussions_plural') }}</div>
 
         <ul class="list-group">
             @if (count($discussions))
@@ -13,7 +13,7 @@
                 </li>
             @else
                 <li class="list-group-item">
-                    No discussions to display.
+                    {{ trans('forum::no_discussions_general_notice') }}
                 </li>
             @endif
         </ul>

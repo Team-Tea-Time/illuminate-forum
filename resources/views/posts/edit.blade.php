@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading">Edit Post</div>
+        <div class="panel-heading">{{ trans('forum::edit_post') }}</div>
 
         <div class="panel-body">
             <form action="{{ route('posts.update', $post->id) }}" method="PUT">
                 <div class="form-group"{{ $errors->has('content') ? ' has-error' : '' }}>
-                    <label for="content">Content</label>
-                    <textarea name="content" id="content" placeholder="Reply content here..." class="form-control">{{ $post->content }}</textarea>
+                    <label for="content">{{ trans('forum::content') }}</label>
+                    <textarea name="content" id="content" placeholder="{{ trans('forum::input_reply') }}" class="form-control">{{ $post->content }}</textarea>
 
                     @if ($errors->has('content'))
                         <span class="help-block">
@@ -17,7 +17,7 @@
                     @endif
                 </div>
 
-                <button class="btn btn-success">Save</button>
+                <button class="btn btn-success">{{ trans('forum::save') }}</button>
             </form>
         </div>
     </div>
