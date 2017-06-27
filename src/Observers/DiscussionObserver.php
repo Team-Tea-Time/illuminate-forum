@@ -15,7 +15,7 @@ class DiscussionObserver
      */
     public function created(Discussion $discussion)
     {
-        $discussion->update(['first_post_id' => $discussion->user_id]);
+        //
     }
 
     /**
