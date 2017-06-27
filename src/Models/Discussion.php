@@ -20,8 +20,6 @@ class Discussion extends Model
         'slug',
         'posts_count',
         'participants_count',
-        'start_post_id',
-        'last_post_id',
     ];
 
     /**

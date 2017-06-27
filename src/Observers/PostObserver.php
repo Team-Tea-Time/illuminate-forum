@@ -16,10 +16,7 @@ class PostObserver
     public function created(Post $post)
     {
         $discussion = $post->discussion;
-        $discussion->update([
-            'posts_count'  => ($discussion->posts_count + 1),
-            'last_post_id' => $post->user_id,
-        ]);
+        $discussion->update(['posts_count'  => ($discussion->posts_count + 1)]);
     }
 
     /**
