@@ -2,12 +2,14 @@
 
 namespace Bitporch\Forum\Models;
 
+use Bitporch\Forum\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Discussion extends Model
 {
-    use SoftDeletes;
+    use HasSlug,
+        SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +17,6 @@ class Discussion extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
         'title',
         'slug',
         'posts_count',
@@ -30,20 +31,56 @@ class Discussion extends Model
     protected $dates = [
         'locked_at',
         'stickied_at',
+        'deleted_at'
     ];
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    /**
+     * Get the groups associtated with the discussion.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function groups()
     {
         return $this->belongsToMany(Group::class);
     }
 
+    /**
+     * Get the posts that are nested under the discussion.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function posts()
     {
         return $this->hasMany(Post::class);
     }
 
-    public function post()
+    /**
+     * Get the first post of the discussion.
+     *
+     * @return mixed
+     */
+    public function firstPost()
     {
-        return $this->posts->first()->with('user')->first();
+        return $this->posts()->oldest()->with('user')->first();
+    }
+
+    /**
+     * Get the user who created the discussion.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(config('forum.user'));
     }
 }

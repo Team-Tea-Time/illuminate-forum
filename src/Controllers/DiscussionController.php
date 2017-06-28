@@ -40,7 +40,6 @@ class DiscussionController extends Controller
         $discussion = Discussion::create($request->only([
             'title',
         ]) + [
-            'user_id' => $request->user()->id,
             'slug'    => str_slug($request->title, '-'),
         ]);
 
@@ -51,6 +50,7 @@ class DiscussionController extends Controller
         ]);
 
         $discussion->groups()->attach($request->group_id);
+        $request->user()->discussions()->attach($discussion);
 
         return redirect()->route('forum.discussions.show', $discussion->id);
     }

@@ -22,6 +22,15 @@ class Group extends Model
     ];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'deleted_at'
+    ];
+
+    /**
      * Get the route key for the model.
      *
      * @return string
@@ -31,6 +40,11 @@ class Group extends Model
         return 'slug';
     }
 
+    /**
+     * Get the discussions associated with the group.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function discussions()
     {
         return $this->belongsToMany(Discussion::class);

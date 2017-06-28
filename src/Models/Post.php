@@ -20,11 +20,30 @@ class Post extends Model
         'content',
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'deleted_at'
+    ];
+
+    /**
+     * Get the discussion that belongs to the post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function discussion()
     {
         return $this->belongsTo(Discussion::class);
     }
 
+    /**
+     * Get the user who created the post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(config('forum.user'));

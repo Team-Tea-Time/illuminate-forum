@@ -64,7 +64,7 @@ return [
         'enabled'    => false,
         'prefix'     => 'api/forum',
         'namespace'  => '\Bitporch\Forum\Controllers\Api',
-        'middleware' => 'auth:api',
+        'middleware' => ['api', 'auth:api'],
     ],
 
     'web' => [
