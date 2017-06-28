@@ -26,7 +26,7 @@ class Post extends Model
      * @var array
      */
     protected $dates = [
-        'deleted_at'
+        'deleted_at',
     ];
 
     /**

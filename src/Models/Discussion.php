@@ -31,7 +31,7 @@ class Discussion extends Model
     protected $dates = [
         'locked_at',
         'stickied_at',
-        'deleted_at'
+        'deleted_at',
     ];
 
     /**
