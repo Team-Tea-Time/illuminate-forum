@@ -8,11 +8,5 @@ Route::prefix(config('forum.web.prefix'))->middleware(config('forum.web.middlewa
     Route::resource('discussions', 'DiscussionController');
     Route::resource('posts', 'PostController');
 
-    Route::resource('lock', 'Discussion\LockController', [
-        'only' => ['store', 'destroy'],
-    ]);
-
-    Route::resource('sticky', 'Discussion\StickyController', [
-        'only' => ['store', 'destroy'],
-    ]);
+    Route::patch('discussions/{discussion}/flags', 'Discussion\FlagController@update')->name('discussions.flag');
 });

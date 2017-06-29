@@ -28,7 +28,7 @@ trait HasSlug
         $this->slug = $slug;
     }
 
-    protected function uniqueSlug(string $slug)
+    protected function uniqueSlug($slug)
     {
         $originalSlug = $slug;
         $i = 1;
