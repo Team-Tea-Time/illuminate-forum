@@ -9,21 +9,17 @@ class GroupTest extends TestCase
 {
     public function testDestroyGroup()
     {
-        $this->assertTrue(true);
+        $group = create(Group::class);
 
-        // $group = factory(Group::class)->create();
+        $this->delete(route('forum.groups.destroy', $group->slug))
+            ->assertResponseStatus(204);
 
-        // $this->delete(route('forum.groups.destroy', $group->slug))
-        //     ->assertResponseStatus(204);
-
-        // $this->dontSeeInDatabase('groups', ['id' => $group]);
+        $this->dontSeeInDatabase('groups', ['id' => $group]);
     }
 
     public function testFailToDestroyGroup()
     {
-        $this->assertTrue(true);
-
-        // $this->withExceptionHandler()->delete(route('forum.groups.destroy', $this->faker()->word))
-        //     ->assertResponseStatus(404);
+        $this->withExceptionHandler()->delete(route('forum.groups.destroy', $this->faker()->word))
+            ->assertResponseStatus(404);
     }
 }

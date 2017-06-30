@@ -7,8 +7,8 @@ use Bitporch\Tests\Stubs\Models\User;
 use Exception;
 use Faker\Factory as Faker;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Foundation\Exceptions\Handler;
-use Illuminate\Routing\Middleware\SubstituteBindings;
 use Mockery;
 use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\BrowserKit\TestCase as BaseTestCase;
@@ -39,15 +39,16 @@ class TestCase extends BaseTestCase
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
         $app['config']->set('database.connections.testbench', [
-            'driver'   => 'sqlite',
-            'database' => ':memory:',
-            'prefix'   => '',
+            'driver'    => 'sqlite',
+            'database'  => ':memory:',
+            'prefix'    => '',
         ]);
+
+        $settings = require __DIR__.'/../config/forum.php';
+
+        $this->applySettings($app, $settings);
+
         $app['config']->set('forum.user', User::class);
-        $app['config']->set('forum.web.enabled', true);
-        $app['config']->set('forum.web.prefix', 'forum');
-        $app['config']->set('forum.web.namespace', '\Bitporch\Forum\Controllers');
-        $app['config']->set('forum.web.middleware', [SubstituteBindings::class]);
     }
 
     protected function setUp()
@@ -74,16 +75,51 @@ class TestCase extends BaseTestCase
         Mockery::close();
     }
 
+    /**
+     * Automatically disables exception handling for tests.
+     *
+     * @param \Illuminate\Foundation\Application $app
+     */
     protected function resolveApplicationExceptionHandler($app)
     {
         $app->singleton(ExceptionHandler::class, PassThroughHandler::class);
     }
 
+    /**
+     * Enables exception handling for tests.
+     *
+     * @return $this
+     */
     protected function withExceptionHandler()
     {
         $this->app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', 'Orchestra\Testbench\Exceptions\Handler');
 
         return $this;
+    }
+
+    protected function signIn(User $user = null)
+    {
+        $user = $user ?: create(User::class);
+
+        return $this->actingAs($user);
+    }
+
+    /**
+     * Apply recursively all the array settings into the application.
+     *
+     * @param Application $app
+     * @param array       $settings
+     * @param string      $prefix
+     */
+    private function applySettings(Application &$app, array $settings, $prefix = 'forum.')
+    {
+        foreach ($settings as $config => $value) {
+            if (is_array($value)) {
+                $this->applySettings($app, $value, $prefix.$config.'.');
+            } else {
+                $app['config']->set($prefix.$config, $value);
+            }
+        }
     }
 }
 
