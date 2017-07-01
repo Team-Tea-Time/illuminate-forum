@@ -1,9 +1,12 @@
 <?php
+
 namespace Bitporch\Tests\Integration;
+
 use Bitporch\Forum\Models\Discussion;
 use Bitporch\Forum\Models\Post;
 use Bitporch\Tests\Stubs\Models\User;
 use Bitporch\Tests\TestCase;
+
 class PostTest extends TestCase
 {
     /**
@@ -22,6 +25,7 @@ class PostTest extends TestCase
             ->assertRedirectedToRoute('forum.discussions.show', $discussion->id);
     //     $this->seeInDatabase('posts', ['content' => $content, 'discussion_id' => $discussion->id]);
     }
+
     /**
      * @test
      */
@@ -36,6 +40,7 @@ class PostTest extends TestCase
         ])
             ->assertRedirectedToRoute('forum.login');
     }
+
     /**
      * @test
      */
@@ -50,6 +55,7 @@ class PostTest extends TestCase
                 'discussion_id' => 'The discussion id field is required.',
             ]);
     }
+
     /**
      * @test
      */
@@ -63,6 +69,7 @@ class PostTest extends TestCase
             ->assertResponseStatus(302)
             ->assertRedirectedToRoute('forum.discussions.show', $post->discussion->id);
     }
+
     /**
      * @test
      */
@@ -78,6 +85,7 @@ class PostTest extends TestCase
         $this->seeInDatabase('posts', ['id' => $post->id, 'content' => $post->content, 'discussion_id' => $post->discussion->id]);
         $this->dontSeeInDatabase('posts', ['id' => $post->id, 'content' => $content]);
     }
+
     /**
      * @test
      */
@@ -90,6 +98,7 @@ class PostTest extends TestCase
             ->assertSessionHas('success', 'Post deleted successfully.');
         $this->dontSeeInDatabase('posts', ['id' => $post]);
     }
+
     /**
      * @test
      */
@@ -101,6 +110,7 @@ class PostTest extends TestCase
             ->assertResponseStatus(401);
         $this->seeInDatabase('posts', ['id' => $post]);
     }
+
     /**
      * Helper method that signs in and creates a post under the signed in user.
      *
@@ -109,6 +119,7 @@ class PostTest extends TestCase
     private function signInAndSeedPost()
     {
         $this->signIn($user = create(User::class));
+
         return create(Post::class, ['user_id' => $user->id]);
     }
 }
