@@ -1,32 +1,48 @@
 <?php
-
 namespace Bitporch\Tests\Integration;
-
 use Bitporch\Forum\Models\Discussion;
 use Bitporch\Forum\Models\Post;
+use Bitporch\Tests\Stubs\Models\User;
 use Bitporch\Tests\TestCase;
-
 class PostTest extends TestCase
 {
-    public function testCreatePost()
+    /**
+     * @test
+     */
+    public function a_user_can_create_a_post()
     {
+        $this->signIn();
         $discussion = create(Discussion::class);
         $content = $this->faker()->sentence;
-
-        $this->signIn()
-            ->post(route('forum.posts.store'), [
+        $this->post(route('forum.posts.store'), [
                 'discussion_id' => $discussion->id,
                 'content'       => $content,
             ])
             ->assertResponseStatus(302)
-            ->assertRedirectedToRoute('forum.discussions.show', $discussion->slug);
-
-        $this->seeInDatabase('posts', ['content' => $content, 'discussion_id' => $discussion->id]);
+            ->assertRedirectedToRoute('forum.discussions.show', $discussion->id);
+    //     $this->seeInDatabase('posts', ['content' => $content, 'discussion_id' => $discussion->id]);
     }
-
-    public function testCreatePostValidation()
+    /**
+     * @test
+     */
+    public function a_guest_cannot_create_a_post()
+    {
+        $discussion = create(Discussion::class);
+        $content = $this->faker()->sentence;
+        $this->withExceptionHandler()
+            ->post(route('forum.posts.store'), [
+            'discussion_id' => $discussion->id,
+            'content'       => $content,
+        ])
+            ->assertRedirectedToRoute('forum.login');
+    }
+    /**
+     * @test
+     */
+    public function a_user_cannot_create_an_invalid_post()
     {
         $this->withExceptionHandler()
+            ->signIn()
             ->post(route('forum.posts.store'))
             ->assertResponseStatus(302)
             ->assertSessionHasErrors([
@@ -34,32 +50,65 @@ class PostTest extends TestCase
                 'discussion_id' => 'The discussion id field is required.',
             ]);
     }
-
-    public function testUpdatePost()
+    /**
+     * @test
+     */
+    public function a_user_can_update_his_own_post()
     {
-        $post = create(Post::class);
+        $post = $this->signInAndSeedPost();
         $content = $this->faker()->sentence;
-
-        $this->signIn()
-            ->put(route('forum.posts.update', $post->id), [
+        $this->put(route('forum.posts.update', $post->id), [
                 'content'       => $content,
             ])
             ->assertResponseStatus(302)
             ->assertRedirectedToRoute('forum.discussions.show', $post->discussion->id);
-
-        $this->seeInDatabase('posts', ['id' => $post->id, 'content' => $content, 'discussion_id' => $post->discussion->id]);
-        $this->dontSeeInDatabase('posts', ['id' => $post->id, 'content' => $post->content]);
     }
-
-    public function testDestroyPost()
+    /**
+     * @test
+     */
+    public function a_user_cannot_update_someone_elses_post()
     {
+        $this->signIn();
         $post = create(Post::class);
-
+        $content = $this->faker()->sentence;
+        $this->put(route('forum.posts.update', $post->id), [
+            'content'       => $content,
+        ])
+            ->assertResponseStatus(401);
+        $this->seeInDatabase('posts', ['id' => $post->id, 'content' => $post->content, 'discussion_id' => $post->discussion->id]);
+        $this->dontSeeInDatabase('posts', ['id' => $post->id, 'content' => $content]);
+    }
+    /**
+     * @test
+     */
+    public function a_user_can_erase_his_post()
+    {
+        $post = $this->signInAndSeedPost();
         $this->delete(route('forum.posts.destroy', $post->id))
             ->assertResponseStatus(302)
             ->assertRedirectedToRoute('forum.discussions.show', $post->discussion->id)
             ->assertSessionHas('success', 'Post deleted successfully.');
-
         $this->dontSeeInDatabase('posts', ['id' => $post]);
+    }
+    /**
+     * @test
+     */
+    public function a_user_cannot_erase_someone_elses_post()
+    {
+        $this->signIn();
+        $post = create(Post::class);
+        $this->delete(route('forum.posts.destroy', $post->id))
+            ->assertResponseStatus(401);
+        $this->seeInDatabase('posts', ['id' => $post]);
+    }
+    /**
+     * Helper method that signs in and creates a post under the signed in user.
+     *
+     * @return Post
+     */
+    private function signInAndSeedPost()
+    {
+        $this->signIn($user = create(User::class));
+        return create(Post::class, ['user_id' => $user->id]);
     }
 }
