@@ -10,20 +10,18 @@ class PostTest extends TestCase
 {
     public function testCreatePost()
     {
-        $this->assertTrue(true);
+        $discussion = create(Discussion::class);
+        $content = $this->faker()->sentence;
 
-    //     $discussion = create(Discussion::class);
-    //     $content = $this->faker()->sentence;
+        $this->signIn()
+            ->post(route('forum.posts.store'), [
+                'discussion_id' => $discussion->id,
+                'content'       => $content,
+            ])
+            ->assertResponseStatus(302)
+            ->assertRedirectedToRoute('forum.discussions.show', $discussion->slug);
 
-    //     $this->signIn()
-    //         ->post(route('forum.posts.store'), [
-    //             'discussion_id' => $discussion->id,
-    //             'content'       => $content,
-    //         ])
-    //         ->assertResponseStatus(302)
-    //         ->assertRedirectedToRoute('forum.discussions.show', $discussion->id);
-
-    //     $this->seeInDatabase('posts', ['content' => $content, 'discussion_id' => $discussion->id]);
+        $this->seeInDatabase('posts', ['content' => $content, 'discussion_id' => $discussion->id]);
     }
 
     public function testCreatePostValidation()
@@ -39,33 +37,29 @@ class PostTest extends TestCase
 
     public function testUpdatePost()
     {
-        $this->assertTrue(true);
+        $post = create(Post::class);
+        $content = $this->faker()->sentence;
 
-        // $post = create(Post::class);
-        // $content = $this->faker()->sentence;
+        $this->signIn()
+            ->put(route('forum.posts.update', $post->id), [
+                'content'       => $content,
+            ])
+            ->assertResponseStatus(302)
+            ->assertRedirectedToRoute('forum.discussions.show', $post->discussion->id);
 
-        // $this->signIn()
-        //     ->put(route('forum.posts.update', $post->id), [
-        //         'content'       => $content,
-        //     ])
-        //     ->assertResponseStatus(302)
-        //     ->assertRedirectedToRoute('forum.discussions.show', $post->discussion->id);
-
-        // $this->seeInDatabase('posts', ['id' => $post->id, 'content' => $content, 'discussion_id' => $post->discussion->id]);
-        // $this->dontSeeInDatabase('posts', ['id' => $post->id, 'content' => $post->content]);
+        $this->seeInDatabase('posts', ['id' => $post->id, 'content' => $content, 'discussion_id' => $post->discussion->id]);
+        $this->dontSeeInDatabase('posts', ['id' => $post->id, 'content' => $post->content]);
     }
 
     public function testDestroyPost()
     {
-        $this->assertTrue(true);
+        $post = create(Post::class);
 
-        // $post = create(Post::class);
+        $this->delete(route('forum.posts.destroy', $post->id))
+            ->assertResponseStatus(302)
+            ->assertRedirectedToRoute('forum.discussions.show', $post->discussion->id)
+            ->assertSessionHas('success', 'Post deleted successfully.');
 
-        // $this->delete(route('forum.posts.destroy', $post->id))
-        //     ->assertResponseStatus(302)
-        //     ->assertRedirectedToRoute('forum.discussions.show', $post->discussion->id)
-        //     ->assertSessionHas('success', 'Post deleted successfully.');
-
-        // $this->dontSeeInDatabase('posts', ['id' => $post]);
+        $this->dontSeeInDatabase('posts', ['id' => $post]);
     }
 }
