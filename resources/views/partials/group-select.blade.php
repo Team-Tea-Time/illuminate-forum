@@ -1,4 +1,4 @@
-<select name="{{ (config('forum.group_mode') != 'nested') ? 'group_id[]' : 'group_id' }}" id="group_id" class="form-control"{{ (config('forum.group_mode') != 'nested') ? ' multiple' : '' }}>
+<select name="{{ !is_group_mode('nested') ? 'group_id[]' : 'group_id' }}" id="group_id" class="form-control"{{ !is_group_mode('nested') ? ' multiple' : '' }}>
     <option selected disabled>-</option>
 
     @if (count($groups))

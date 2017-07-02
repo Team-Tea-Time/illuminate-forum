@@ -30,6 +30,9 @@
         }
     ],
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "Bitporch\\Forum\\": "src"
         }

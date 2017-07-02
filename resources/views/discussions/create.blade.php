@@ -36,7 +36,7 @@
 @endsection
 
 @section('foot')
-    @if (config('forum.group_mode') != 'nested')
+    @if (! is_group_mode('nested'))
         <script>
             $(document).ready(function () {
                 var last_select = null;
