@@ -8,7 +8,7 @@ if (!function_exists('is_group_mode')) {
      *
      * @return bool
      */
-    function is_group_mode(string $mode)
+    function is_group_mode($mode)
     {
         return config('forum.group_mode') === $mode;
     }
