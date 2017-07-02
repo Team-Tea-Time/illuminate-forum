@@ -42,7 +42,7 @@ class Discussion extends Model
      * @var array
      */
     protected $hidden = [
-        'user_id'
+        'user_id',
     ];
 
     /**
