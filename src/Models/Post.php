@@ -30,6 +30,15 @@ class Post extends Model
     ];
 
     /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'user_id'
+    ];
+
+    /**
      * Get the discussion that belongs to the post.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -37,6 +37,15 @@ class Discussion extends Model
     ];
 
     /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'user_id'
+    ];
+
+    /**
      * Get the route key for the model.
      *
      * @return string
