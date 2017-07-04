@@ -50,6 +50,7 @@ class InstallCommand extends Command
     {
         if (!is_dir(app_path('Policies'))) {
             mkdir(app_path('Policies'), 0755, true);
+            $this->info('Policy directory created', 'vv');
         }
 
         foreach ($this->policies as $key => $value) {
@@ -57,6 +58,8 @@ class InstallCommand extends Command
                 __DIR__.'/stubs/'.$key,
                 app_path('Policies/'.$value)
             );
+            $this->info(sprintf('Policy %s created', $value), 'vv');
         }
+        $this->info('Forum installed.');
     }
 }
