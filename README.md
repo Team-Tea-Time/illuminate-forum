@@ -27,7 +27,7 @@ php artisan forum:install
 ```
 
 ## Migrations
-Setup your database on your `.env` file and run the migrations for Laravel Forum.
+Setup your database in your `.env` file and run the migrations.
 
 ```bash
 php artisan migrate
