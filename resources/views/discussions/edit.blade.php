@@ -5,8 +5,9 @@
         <div class="panel-heading">{{ trans('forum::forum.edit_discussion') }}</div>
 
         <div class="panel-body">
-            <form action="{{ route('forum.discussions.update', $discussion->id) }}" method="PUT">
+            <form action="{{ route('forum.discussions.update', $discussion->id) }}" method="POST">
                 {{ csrf_field() }}
+                {{ method_field('PUT') }}
 
                 <div class="form-group"{{ $errors->has('group_id') ? ' has-error' : '' }}>
                     <label for="group">{{ trans('forum::forum.group_singular') }}</label>

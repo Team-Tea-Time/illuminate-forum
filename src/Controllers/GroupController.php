@@ -25,7 +25,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('forum::groups.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class GroupController extends Controller
     {
         $group = Group::create($request->all());
 
-        return response($group, 201);
+        return redirect()->route('forum::groups.show', $group->id);
     }
 
     /**
@@ -57,6 +57,18 @@ class GroupController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Group $group
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Group $group)
+    {
+        return view('forum::groups.edit')->with(compact('group'));
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param UpdateGroupRequest $request
@@ -68,7 +80,7 @@ class GroupController extends Controller
     {
         $group->update($request->all());
 
-        return response($group, 200);
+        return view('forum::groups.show')->with(compact('group'));
     }
 
     /**

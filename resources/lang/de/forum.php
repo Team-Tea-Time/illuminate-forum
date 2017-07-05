@@ -9,6 +9,8 @@ return [
     // Groups
     'groups_plural'                 => 'Gruppen',
     'groups_singular'               => 'Gruppe',
+    'create_group'                  => 'Create Group',
+    'edit_group'                    => 'Edit Group',
 
     // Dicussions
     'discussions_plural'            => 'Diskussionen',
@@ -31,6 +33,7 @@ return [
     // Labels
     'label_title'                   => 'Titel',
     'label_content'                 => 'Inhalt',
+    'label_color'                   => 'Color',
 
     // Inputs
     'input_reply'                   => 'Schreibe deinen Beitrag hier...',

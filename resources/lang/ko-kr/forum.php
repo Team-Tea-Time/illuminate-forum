@@ -9,6 +9,8 @@ return [
     // Groups
     'groups_plural'                 => '그룹',
     'groups_singular'               => '그룹',
+    'create_group'                  => 'Create Group',
+    'edit_group'                    => 'Edit Group',
 
     // Dicussions
     'discussions_plural'            => '토론',
@@ -31,6 +33,7 @@ return [
     // Labels
     'label_title'                   => '제목',
     'label_content'                 => '게시물',
+    'label_color'                   => 'Color',
 
     // Inputs
     'input_reply'                   => '응답 입력',
