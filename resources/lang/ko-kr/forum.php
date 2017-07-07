@@ -33,6 +33,7 @@ return [
     // Labels
     'label_title'                   => '제목',
     'label_content'                 => '게시물',
+    'label_name'                    => 'Name',
     'label_color'                   => 'Color',
 
     // Inputs

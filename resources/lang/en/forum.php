@@ -33,6 +33,7 @@ return [
     // Labels
     'label_title'                   => 'Title',
     'label_content'                 => 'Content',
+    'label_name'                    => 'Name',
     'label_color'                   => 'Color',
 
     // Inputs
