@@ -1,5 +1,9 @@
 ## Laravel Forum
 
+[![Build Status](https://travis-ci.org/bitporch/laravel-forum.svg?branch=master)](https://travis-ci.org/bitporch/laravel-forum)
+[![Total Downloads](https://poser.pugx.org/bitporch/laravel-forum/downloads)](https://packagist.org/packages/bitporch/laravel-forum)
+[![License](https://poser.pugx.org/bitporch/laravel-forum/license)](https://packagist.org/packages/bitporch/laravel-forum)
+
 This package allows you to easily add a simple forum to your application whilst also supporting ease of use and expansion.
 
 ## Features
