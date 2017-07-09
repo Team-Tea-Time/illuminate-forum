@@ -30,6 +30,14 @@ Then go ahead and run our easy to use install command.
 php artisan forum:install
 ```
 
+Finally you need to register the policies inside of the `AuthServiceProvider`.
+
+```php
+'Bitporch\Forum\Models\Discussion' => 'App\Policies\DiscussionPolicy',
+'Bitporch\Forum\Models\Group'      => 'App\Policies\GroupPolicy',
+'Bitporch\Forum\Models\Post'       => 'App\Policies\PostPolicy',
+```
+
 ## Migrations
 Setup your database in your `.env` file and run the migrations.
 

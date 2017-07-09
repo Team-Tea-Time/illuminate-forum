@@ -47,6 +47,8 @@ return [
     'lock'                          => 'Lock',
     'unsticky'                      => 'Unsticky',
     'sticky'                        => 'Sticky',
+    'delete'                        => 'Delete',
+    'edit'                          => 'Edit',
 
     // Search
     'search_results'                => 'Search Results',
