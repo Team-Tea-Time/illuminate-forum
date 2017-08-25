@@ -73,4 +73,4 @@ class User extends Authenticatable
 
 ## Configuration
 
-After publishing, the firefly config file can be found under `config/Firefly.php` where you can modify the package configuration.
+After publishing, the firefly config file can be found under `config/firefly.php` where you can modify the package configuration.
