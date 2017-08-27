@@ -14,10 +14,9 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $discussions = Discussion::orderBy([
-            'created_at'  => 'desc',
-            'stickied_at' => 'desc',
-        ])->paginate(config('firefly.pagination.discussions'));
+        $discussions = Discussion::orderBy('created_at', 'desc')
+            ->orderBy('stickied_at', 'desc')
+            ->paginate(config('firefly.pagination.discussions'));
 
         return view('firefly::index')->with(compact('discussions'));
     }
