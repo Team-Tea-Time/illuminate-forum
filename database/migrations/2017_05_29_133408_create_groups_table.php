@@ -19,6 +19,7 @@ class CreateGroupsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('color')->nullable();
+            $table->boolean('is_private')->default(false);
 
             NestedSet::columns($table);
 
