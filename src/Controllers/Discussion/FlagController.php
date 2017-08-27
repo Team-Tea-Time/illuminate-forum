@@ -27,6 +27,6 @@ class FlagController extends Controller
             $discussion->update(['stickied_at' => $discussion->stickied_at ? null : Carbon::now()]);
         }
 
-        return redirect()->route('firefly.discussions.show', $discussion->slug);
+        return redirect()->route('forum.discussions.show', $discussion->slug);
     }
 }

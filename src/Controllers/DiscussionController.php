@@ -49,7 +49,7 @@ class DiscussionController extends Controller
 
         $discussion->groups()->attach($request->group_id);
 
-        return redirect()->route('firefly.discussions.show', $discussion->slug);
+        return redirect()->route('forum.discussions.show', $discussion->slug);
     }
 
     /**
@@ -78,7 +78,7 @@ class DiscussionController extends Controller
     {
         $discussion->update($request->all());
 
-        return redirect()->route('firefly.discussions.show', $discussion->slug);
+        return redirect()->route('forum.discussions.show', $discussion->slug);
     }
 
     /**
@@ -92,6 +92,6 @@ class DiscussionController extends Controller
     {
         $discussion->delete();
 
-        return redirect()->route('firefly.home')->with('success', 'Discussion deleted successfully.');
+        return redirect()->route('forum.home')->with('success', 'Discussion deleted successfully.');
     }
 }

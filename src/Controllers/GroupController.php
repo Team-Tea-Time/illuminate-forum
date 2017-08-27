@@ -39,7 +39,7 @@ class GroupController extends Controller
     {
         $group = Group::create($request->all());
 
-        return redirect()->route('firefly::groups.show', $group->id);
+        return redirect()->route('forum::groups.show', $group->id);
     }
 
     /**
@@ -52,7 +52,7 @@ class GroupController extends Controller
     public function show(Group $group)
     {
         $group->discussions = $group->discussions()
-            ->orderBy'created_at', 'desc')
+            ->orderBy('created_at', 'desc')
             ->orderBy('stickied_at', 'desc')
             ->paginate(config('firefly.pagination.discussions'));
 

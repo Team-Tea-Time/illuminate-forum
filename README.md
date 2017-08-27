@@ -34,8 +34,8 @@ Finally you need to register the policies inside of the `AuthServiceProvider`.
 
 ```php
 'Bitporch\Firefly\Models\Discussion' => 'App\Policies\DiscussionPolicy',
-'Bitporch\Firefly\Models\Group'      => 'App\Policies\GroupPolicy',
-'Bitporch\Firefly\Models\Post'       => 'App\Policies\PostPolicy',
+'Bitporch\Firefly\Models\Group' => 'App\Policies\GroupPolicy',
+'Bitporch\Firefly\Models\Post' => 'App\Policies\PostPolicy',
 ```
 
 ## Migrations
