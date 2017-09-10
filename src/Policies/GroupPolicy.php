@@ -23,8 +23,9 @@ class GroupPolicy
     /**
      * Determine if the given user can manage the group.
      *
-     * @param  \App\User  $user
-     * @param  \App\Group $group
+     * @param \App\User  $user
+     * @param \App\Group $group
+     *
      * @return bool
      */
     public function manage(User $user, Group $group)

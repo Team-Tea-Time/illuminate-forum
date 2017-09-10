@@ -23,8 +23,9 @@ class DiscussionPolicy
     /**
      * Determine if the given user can manage the discussion.
      *
-     * @param  \App\User  $user
-     * @param  \App\Discussion  $discussion
+     * @param \App\User       $user
+     * @param \App\Discussion $discussion
+     *
      * @return bool
      */
     public function manage(User $user, Discussion $discussion)
@@ -35,8 +36,9 @@ class DiscussionPolicy
     /**
      * Determine if a user can reply to the discussion.
      *
-     * @param  \App\User  $user
-     * @param  \App\Discussion  $discussion
+     * @param \App\User       $user
+     * @param \App\Discussion $discussion
+     *
      * @return bool
      */
     public function reply(User $user, Discussion $discussion)
