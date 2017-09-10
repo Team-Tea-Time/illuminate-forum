@@ -9,10 +9,10 @@ use Bitporch\Firefly\Models\Post;
 use Bitporch\Firefly\Observers\DiscussionObserver;
 use Bitporch\Firefly\Observers\PostObserver;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 
 class FireflyServiceProvider extends ServiceProvider
 {
@@ -127,8 +127,8 @@ class FireflyServiceProvider extends ServiceProvider
     {
         $polices = [
             'Bitporch\Firefly\Models\Discussion' => 'Bitporch\Firefly\Policies\DiscussionPolicy',
-            'Bitporch\Firefly\Models\Group' => 'Bitporch\Firefly\Policies\GroupPolicy',
-            'Bitporch\Firefly\Models\Post' => 'Bitporch\Firefly\Policies\PostPolicy',
+            'Bitporch\Firefly\Models\Group'      => 'Bitporch\Firefly\Policies\GroupPolicy',
+            'Bitporch\Firefly\Models\Post'       => 'Bitporch\Firefly\Policies\PostPolicy',
         ];
 
         foreach ($polices as $key => $value) {
