@@ -9,6 +9,16 @@ use Bitporch\Firefly\Requests\Discussions\UpdateDiscussionRequest;
 class DiscussionController extends Controller
 {
     /**
+     * Set the middleware for the controller.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except([
+            'index', 'show'
+        ]);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

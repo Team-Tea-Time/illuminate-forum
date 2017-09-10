@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class FireflyServiceProvider extends ServiceProvider
 {
@@ -42,6 +43,7 @@ class FireflyServiceProvider extends ServiceProvider
         $this->registerPackageNamespaces();
         $this->registerModelObservers();
         $this->registerBladeDirectives();
+        $this->registerPolicies();
 
         View::composer('*', 'Bitporch\Firefly\ViewComposers\GroupComposer');
     }
@@ -116,5 +118,21 @@ class FireflyServiceProvider extends ServiceProvider
                 ?>
             ';
         });
+    }
+
+    /**
+     * Register the policies for the models.
+     */
+    public function registerPolicies()
+    {
+        $polices = [
+            'Bitporch\Firefly\Models\Discussion' => 'Bitporch\Firefly\Policies\DiscussionPolicy',
+            'Bitporch\Firefly\Models\Group' => 'Bitporch\Firefly\Policies\GroupPolicy',
+            'Bitporch\Firefly\Models\Post' => 'Bitporch\Firefly\Policies\PostPolicy',
+        ];
+
+        foreach ($polices as $key => $value) {
+            Gate::policy($key, $value);
+        }
     }
 }

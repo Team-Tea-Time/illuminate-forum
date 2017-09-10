@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Policies;
+namespace Bitporch\Firefly\Policies;
 
 use App\User;
 use Bitporch\Firefly\Models\Discussion;
