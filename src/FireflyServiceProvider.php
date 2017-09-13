@@ -2,7 +2,6 @@
 
 namespace Bitporch\Firefly;
 
-use Bitporch\Firefly\Console\InstallCommand;
 use Bitporch\Firefly\Models\Discussion;
 use Bitporch\Firefly\Models\Group;
 use Bitporch\Firefly\Models\Post;
@@ -23,12 +22,6 @@ class FireflyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                InstallCommand::class,
-            ]);
-        }
-
         $this->loadTranslationsFrom(__DIR__.'/../resources/translations', 'firefly');
 
         $this->publishes([
