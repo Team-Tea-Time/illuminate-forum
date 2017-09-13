@@ -18,26 +18,6 @@ Install the package directly from the command line using the following command.
 composer require "bitporch/laravel-firefly"
 ```
 
-Next open up `config/app.php` and add the following under the package providers section.
-
-```php
-Bitporch\Firefly\FireflyServiceProvider::class,
-```
-
-Then go ahead and run our easy to use install command.
-
-```bash
-php artisan firefly:install
-```
-
-Finally you need to register the policies inside of the `AuthServiceProvider`.
-
-```php
-'Bitporch\Firefly\Models\Discussion' => 'App\Policies\DiscussionPolicy',
-'Bitporch\Firefly\Models\Group' => 'App\Policies\GroupPolicy',
-'Bitporch\Firefly\Models\Post' => 'App\Policies\PostPolicy',
-```
-
 ## Migrations
 Setup your database in your `.env` file and run the migrations.
 
