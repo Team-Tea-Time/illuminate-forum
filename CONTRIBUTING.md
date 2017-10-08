@@ -16,13 +16,6 @@ Require the package
 composer require bitporch/laravel-firefly:dev-master
 ```
 
-Add the service provider to app/config.php
-
-```
-Bitporch\Firefly\FireflyServiceProvider::class,
-```
-
-
 Run the install command
 ```
 php artisan firefly:install
