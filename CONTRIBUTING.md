@@ -12,22 +12,29 @@ laravel new laravel-firefly-test
 ```
 
 Require the package
+
 ```
 composer require bitporch/laravel-firefly:dev-master
 ```
 
 Run the install command
+
 ```
 php artisan firefly:install
 ```
 
 Publish vendor files
+
 ```
 php artisan vendor:publish
 ```
+
 Also.. don't forget to migrate
 
+```
 php artisan migrate
+```
+
 Note: You'll need to add groups manually to the database table.
 
-In case you need any help contributing you can create an issue on the repo or ping us (@dylan.dpc, @andreaselia, @riari) on larachat (https://larachat.co/)
+In case you need any help contributing you can create an issue on the repo or ping us (@Dylan DPC, @andreaselia, @Captain Angular) on larachat (https://larachat.co/)
