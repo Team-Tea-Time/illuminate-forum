@@ -37,4 +37,4 @@ php artisan migrate
 
 Note: You'll need to add groups manually to the database table.
 
-In case you need any help contributing you can create an issue on the repo or ping us (@Dylan DPC, @andreaselia, @Captain Angular) on larachat (https://larachat.co/)
+In case you need any help contributing you can create an issue on the repo or ping me (@andreaselia) on larachat (https://larachat.co/)
