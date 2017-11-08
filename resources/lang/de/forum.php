@@ -3,14 +3,14 @@
 return [
 
     // General
-    'name'                          => 'Forum',
-    'sr_nav_label'                  => 'Navigation wechseln',
+    'name'         => 'Forum',
+    'sr_nav_label' => 'Navigation wechseln',
 
     // Groups
-    'groups_plural'                 => 'Gruppen',
-    'groups_singular'               => 'Gruppe',
-    'create_group'                  => 'Create Group',
-    'edit_group'                    => 'Edit Group',
+    'groups_plural'   => 'Gruppen',
+    'groups_singular' => 'Gruppe',
+    'create_group'    => 'Create Group',
+    'edit_group'      => 'Edit Group',
 
     // Dicussions
     'discussions_plural'            => 'Diskussionen',
@@ -22,32 +22,32 @@ return [
     'no_discussions_general_notice' => 'Es gibt keine Diskussionen.',
 
     // Posts
-    'posts_plural'                  => 'Beiträge',
-    'posts_singular'                => 'Beitrag',
-    'edit_post'                     => 'Beitrag bearbeiten',
+    'posts_plural'   => 'Beiträge',
+    'posts_singular' => 'Beitrag',
+    'edit_post'      => 'Beitrag bearbeiten',
 
     // Labels
-    'label_title'                   => 'Titel',
-    'label_content'                 => 'Inhalt',
-    'label_name'                    => 'Name',
-    'label_color'                   => 'Color',
+    'label_title'   => 'Titel',
+    'label_content' => 'Inhalt',
+    'label_name'    => 'Name',
+    'label_color'   => 'Color',
 
     // Inputs
-    'input_reply'                   => 'Schreibe deinen Beitrag hier...',
-    'input_search'                  => 'Forum durchsuchen',
+    'input_reply'  => 'Schreibe deinen Beitrag hier...',
+    'input_search' => 'Forum durchsuchen',
 
     // Buttons
-    'submit'                        => 'Absenden',
-    'save'                          => 'Speichern',
-    'unlock'                        => 'Entsperren',
-    'lock'                          => 'Sperren',
-    'unsticky'                      => 'Entheften',
-    'sticky'                        => 'Anheften',
-    'delete'                        => 'Delete',
-    'edit'                          => 'Edit',
+    'submit'   => 'Absenden',
+    'save'     => 'Speichern',
+    'unlock'   => 'Entsperren',
+    'lock'     => 'Sperren',
+    'unsticky' => 'Entheften',
+    'sticky'   => 'Anheften',
+    'delete'   => 'Delete',
+    'edit'     => 'Edit',
 
     // Search
-    'search_results'                => 'Ergebnisse durchsuchen',
-    'no_search_results'             => 'Keine Ergebnisse gefunden.',
+    'search_results'    => 'Ergebnisse durchsuchen',
+    'no_search_results' => 'Keine Ergebnisse gefunden.',
 
 ];
